@@ -1,0 +1,48 @@
+<nav class="top-0 z-50 text-white py-4 border-b-2 border-white">
+  <div class="container mx-auto flex justify-between items-center place-items-center md:px-4 lg:px-8">
+    <!-- Add place-items-center and some padding -->
+    <a [routerLink]="['/']" class="font-bold text-xl flex-shrink-0">
+      <div class="flex items-center space-x-2">
+        <img src="assets/png/LOGO-.png" alt="Car dealership logo"
+             class="w-auto h-auto max-h-10 max-w-10 mr-2 mx-auto md:mx-0">
+      </div>
+    </a>
+
+    <div class="hidden lg:flex space-x-16 text-xl font-roboto">
+      <a [routerLink]="['/']" class="hover:text-gray-400 font-extrabold">Home</a>
+      <a [routerLink]="['/about-us']" class="hover:text-gray-400 font-extrabold">About</a>
+      <a [routerLink]="['/FAQ']" class="hover:text-gray-400 font-extrabold">FAQ</a>
+      <a [routerLink]="['/shop']" class="hover:text-gray-400 font-extrabold">Shop</a>
+    </div>
+    <div class="relative">
+      <select class="text-black font-extrabold" (change)="changeLanguage($event)">
+        <option class="text-black font-extrabold" value="en">English</option>
+        <option class="text-black font-extrabold" value="ar">العربية</option>
+        <option class="text-black font-extrabold" value="ru">Русский</option>
+      </select>
+    </div>
+    <div class="flex items-center space-x-4 xl:pr-5 md:space-x-5">
+      <button class="text-white hover:text-gray-400">
+        <img src="assets/svg/search.svg" class="w-6 h-6">
+      </button>
+      <button (click)="toggleMobileMenu()" class="md:hidden lg:hidden text-white focus:outline-none">
+        <img src="assets/svg/menu.svg" class="w-6 h-6">
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="isMobileMenuOpen"
+       class="fixed inset-0 flex flex-col items-center justify-center z-50 bg-black bg-opacity-50">
+    <div class="bg-gray-800 text-white p-4 w-64 h-screen overflow-y-auto shadow-lg">
+      <button (click)="toggleMobileMenu()" class="absolute top-4 right-4 text-white focus:outline-none">
+        <img src="assets/svg/close.svg" class="w-6 h-6">
+      </button>
+      <ul class="py-4 space-y-2 font-roboto">
+        <li><a [routerLink]="['/']" class="block px-4 py-2 hover:bg-gray-200">Home</a></li>
+        <li><a [routerLink]="['/about-us']" class="block px-4 py-2 hover:bg-gray-200">About</a></li>
+        <li><a [routerLink]="['/FAQ']" class="block px-4 py-2 hover:bg-gray-200">FAQ</a></li>
+        <li><a [routerLink]="['/shop']" class="block px-4 py-2 hover:bg-gray-200">Shop</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

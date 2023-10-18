@@ -1,0 +1,13 @@
+/* افتراضي */
+@media (min-width: 640px) {
+  .menu {
+    flex-direction: row;
+  }
+}
+
+/* لشاشات صغيرة */
+@media (max-width: 639px) {
+  .menu {
+    flex-direction: column;
+  }
+}

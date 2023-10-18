@@ -1,0 +1,35 @@
+.h-screen {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out; /* تسمح للخلفيات بالتلاشي بشكل سلس */
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+}
+
+.Image1{
+  height: 40vh;
+  width: 72vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.Image2{
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+}
+.Image3{
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+}
+
+

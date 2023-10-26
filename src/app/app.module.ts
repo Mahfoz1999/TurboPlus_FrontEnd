@@ -26,6 +26,7 @@ import {FormsModule} from "@angular/forms";
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DubaiSectionComponent } from './dubai-section/dubai-section.component';
 import { ReviewComponent } from './review/review.component';
+import { BrandComponent } from './brand/brand.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ReviewComponent } from './review/review.component';
     SearchResultsComponent,
     DubaiSectionComponent,
     ReviewComponent,
+    BrandComponent,
   ],
     imports: [
         BrowserModule,

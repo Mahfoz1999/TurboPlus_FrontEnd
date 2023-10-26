@@ -7,6 +7,7 @@ import {FAQComponent} from "./faq/faq.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {ImageViewerComponent} from "./image-viewer/image-viewer.component";
 import {SearchResultsComponent} from "./search-results/search-results.component";
+import { BrandComponent } from './brand/brand.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {
     path: 'search-results', component: SearchResultsComponent
-  }
+  },
+  {path: 'brand', component: BrandComponent},
 ];
 
 @NgModule({

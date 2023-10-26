@@ -15,6 +15,9 @@ export class BrandService {
   getBrands(): Observable<Brand[]> {
     return this.http.get<Brand[]>(`${apiBaseUrl}api/Brand/GetAllBrands`);
   }
+  getBrand(id:string): Observable<BrandInfo> {
+    return this.http.get<BrandInfo>(`${apiBaseUrl}api/Brand/GetBrand?Id=${id}`);
+  }
   getBrandsWithCars(): Observable<BrandInfo[]> {
     return this.http.get<BrandInfo[]>(`${apiBaseUrl}api/Brand/GetAllBrandsWithCars`);
   }

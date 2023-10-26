@@ -4,7 +4,6 @@ import {apiBaseUrl} from "../data/api-config";
 import {CarService} from "../data/services/car-services/car.service";
 import {Car} from "../data/models/car.model";
 import {BrandService} from "../data/services/brand-services/brand.service";
-import {Brand} from "../data/models/brand.model";
 import {BrandInfo} from "../data/models/brandInfo.model";
 
 @Component({

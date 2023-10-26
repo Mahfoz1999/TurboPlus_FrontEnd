@@ -1,61 +1,23 @@
-<div class="pt-32  lg:px-[130px] sm:px-16">
-  <img src="assets/images/pexels-alex-azabache-3214995.jpg" alt="Dubai" class="object-fill w-[600px] sm:w-1/2 h-[600px] sm:h-auto">
-  <div>
+<!-- tab-component.html -->
+<div class="pt-32 lg:px-[130px] sm:px-16">
+  <img src="assets/images/pexels-mo-ismail-3763190.jpg" alt="Dubai" class="object-fill w-full h-[500px]">
+  <div class="pt-6">
     <h1 class="text-4xl md:text-5xl sm:text-3xl font-sans text-black">Benefits of Renting a Car in Dubai</h1>
-    <div class="mb-4 border-b  border-gray-200 dark:border-gray-700">
-      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent"
-          role="tablist">
-        <li class="mr-2" role="presentation">
-          <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile"
-                  type="button" role="tab" aria-controls="profile" aria-selected="false">Saving Time
-          </button>
-        </li>
-        <li class="mr-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-            id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
-            aria-selected="false">Low Crime Rate
-          </button>
-        </li>
-        <li class="mr-2" role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-            id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
-            aria-selected="false">Car Park
-          </button>
-        </li>
-        <li role="presentation">
-          <button
-            class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-            id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts"
-            aria-selected="false">Car Delivery
+    <div class="pt-4 mb-4 border-b border-gray-200 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" role="tablist">
+        <li class="mr-2" role="presentation" *ngFor="let tab of tabs; let i = index"
+            [ngClass]="{'active-tab': i === selectedTabIndex}">
+          <button class="inline-block p-4 border-b-2 rounded-t-lg" [id]="'tab-' + i" [attr.data-tabs-target]="'content-' + i"
+                  type="button" role="tab" [attr.aria-selected]="i === selectedTabIndex" (click)="selectTab(i)">
+            {{ tab.title }}
           </button>
         </li>
       </ul>
     </div>
     <div id="myTabContent">
-      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel"
-           aria-labelledby="profile-tab">
-        <article class="text-lg text-gray-500 dark:text-gray-400">On a private car, you can visit many unique places in the
-          UAE and at the same time not waste time collecting tourists from hotels, stopping at shops and other
-          unnecessary details</article>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel"
-           aria-labelledby="dashboard-tab">
-        <article class="text-lg text-gray-500 dark:text-gray-400">The UAE is one of the states where you can safely move
-          around and not be afraid to leave your car anywhere. Nothing will happen to him for sure</article>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel"
-           aria-labelledby="settings-tab">
-        <article class="text-lg text-gray-500 dark:text-gray-400">The car park offered by rental companies deserves special
-          praise. Many of the cars here are new and in excellent condition. Often the tenant receives a vehicle with a
-          mileage of no more than 1 thousand - 2 thousand km</article>
-      </div>
-      <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel"
-           aria-labelledby="contacts-tab">
-        <article class="text-lg text-gray-500 dark:text-gray-400">Having your car shipped to a location that's convenient
-          for you can greatly simplify the process of buying or moving a car. You don't need to go to the dealership
-          or where the car is located, which reduces time and effort</article>
+      <div [class.hidden]="i !== selectedTabIndex" *ngFor="let tab of tabs; let i = index" [id]="'content-' + i" role="tabpanel"
+           [attr.aria-labelledby]="'tab-' + i">
+        <article class="text-lg text-gray-500 dark:text-gray-400">{{ tab.content }}</article>
       </div>
     </div>
   </div>

@@ -1,33 +1,57 @@
-<footer class="bg-black text-white py-8">
-  <div class="container mx-auto flex flex-wrap justify-between items-center">
-    <div class="w-full md:w-1/2 lg:w-1/3 md:pl-8 lg:pl-12">
-      <div class="flex items-center mb-4">
-        <img src="assets/png/LOGO-.png" alt="Car dealership logo" class="w-50 h-10 mr-2">
+<footer class="bg-gray-900">
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+        <a [routerLink]="['/']" class="flex items-center">
+          <img ngSrc="assets/svg/logo.svg" class="h-8 w-1/2 mr-3" alt="TurboPlus Logo" height="18" width="219"/>
+        </a>
       </div>
-      <div class="flex items-center mb-4">
-        <img src="assets/svg/icons8-address-50.png" alt="Address icon" class="w-6 h-6 mr-2">
-        <span>2715 Ash Dr. San Jose, South Dakota 83475</span>
-      </div>
-      <div class="flex items-center mb-4">
-        <img src="assets/svg/icons8-phone-50.png" alt="Phone icon" class="w-6 h-6 mr-2">
-        <span>(316) 555-0116</span>
-      </div>
-      <div class="flex items-center">
-        <a href="#" class="mr-4"><img src="assets/svg/face.svg" alt="Facebook icon" class="w-8 h-8"></a>
-        <a href="#"><img src="assets/svg/insta.svg" alt="Instagram icon" class="w-8 h-8"></a>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold  uppercase text-white">{{translate.instant('Pages') }}</h2>
+          <ul class=" text-gray-400 font-medium">
+            <li class="mb-4">
+              <a [routerLink]="['/']" class="hover:underline">{{translate.instant('home') }}</a>
+            </li>
+            <li class="mb-4">
+              <a [routerLink]="['/about-us']" class="hover:underline">{{translate.instant('about') }}</a>
+            </li>
+            <li class="mb-4">
+              <a [routerLink]="['/FAQ']" class="hover:underline">{{translate.instant('FAQ') }}</a>
+            </li>
+            <li class="mb-4">
+              <a [routerLink]="['/shop']" class="hover:underline">{{translate.instant('shop') }}</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="mb-6 text-sm font-semibold  uppercase text-white">{{translate.instant('follow us') }}</h2>
+          <ul class=" text-gray-400 font-medium">
+            <li class="mb-4">
+              <a href="" class="hover:underline ">Facebook</a>
+            </li>
+            <li>
+              <a href="" class="hover:underline">Instagram</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <div class="w-full md:w-1/2 lg:w-1/3 mt-4 md:mt-0">
-      <ul class="flex flex-col md:flex-row lg:flex-col gap-4">
-        <li><a [routerLink]="['/']" class="hover:underline hover:text-gray-300">{{translate.instant('home') }}</a></li>
-        <li><a [routerLink]="['/shop']" class="hover:underline hover:text-gray-300">{{translate.instant('shop') }}</a></li>
-        <li><a [routerLink]="['/about-us']" class="hover:underline hover:text-gray-300">{{translate.instant('about') }}</a></li>
-        <li><a [routerLink]="['/FAQ']" class="hover:underline hover:text-gray-300">{{translate.instant('FAQ') }}</a></li>
-      </ul>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+    <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a [routerLink]="['/']"
+                                                                                          class="hover:underline">TurboPlus™</a>. All Rights Reserved.
+          </span>
+      <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
+        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+          <img class="w-5 h-5" ngSrc="assets/svg/face.svg" height="50" width="50">
+          <span class="sr-only">Facebook page</span>
+        </a>
+        <a href="#" class="text-gray-500  hover:text-white">
+          <img class="w-5 h-5" ngSrc="assets/svg/insta.svg" height="50" width="50">
+          <span class="sr-only">Instagram Page</span>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="container mx-auto mt-8 border-t border-gray-800 pt-4 text-center">
-    <p>{{translate.instant('copyRight') }}</p>
   </div>
 </footer>

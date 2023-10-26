@@ -1,13 +1,5 @@
-/* افتراضي */
-@media (min-width: 640px) {
-  .menu {
-    flex-direction: row;
-  }
+.active-link {
+  background-color: #000; /* لون الخلفية النشط */
+  color: #fff; /* لون النص النشط */
 }
 
-/* لشاشات صغيرة */
-@media (max-width: 639px) {
-  .menu {
-    flex-direction: column;
-  }
-}

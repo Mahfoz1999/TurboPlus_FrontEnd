@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -19,6 +18,14 @@ import {TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewsLetterComponent } from './news-letter/news-letter.component';
+import { RouterModule } from '@angular/router';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import {FormsModule} from "@angular/forms";
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { DubaiSectionComponent } from './dubai-section/dubai-section.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -33,21 +40,29 @@ import { AboutUsComponent } from './about-us/about-us.component';
     CarProfileComponent,
     FAQComponent,
     AboutUsComponent,
+    NewsLetterComponent,
+    ImageViewerComponent,
+    SearchResultsComponent,
+    DubaiSectionComponent,
+    ReviewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    NgOptimizedImage,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        RouterModule,
+        NgOptimizedImage,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient],
+            },
+        }),
+        BrowserAnimationsModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

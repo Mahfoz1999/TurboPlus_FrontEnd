@@ -1,76 +1,42 @@
-<div class="relative image" [style.background-image]="'url(assets/images/pexels-pixabay-164634.jpg)'">
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 
-</div>
-<div class="container mx-auto flex flex-wrap py-6">
-  <!-- Left Column / Headphones Image -->
-  <div class="w-full md:w-1/2 px-6">
-    <!-- Image Slider -->
-    <div class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] relative rounded-lg overflow-hidden" (click)="showImage(currentImage)">
-      <img
-        [src]="currentImage"
-        alt="Car 1"
-        class="w-full h-full object-cover"
-      />
+<div class="bg-white">
+  <div class="pt-6">
+    <!-- Image gallery -->
+
+
+    <div class="grid grid-cols-2 lg:px-36 md:px-24 gap-2">
+      <div *ngFor="let image of car!.images">
+        <div (click)="viewImage(image)">
+          <img class="h-auto max-w-full rounded-lg" [src]="apiBaseUrl+image" alt="">
+        </div>
+      </div>
     </div>
-    <!-- Image Slider End -->
-    <!-- Image Selector -->
-    <div class="flex items-center justify-center mt-4">
-      <button
-        (click)="showImage('assets/images/2.jpg')"
-        class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 border border-gray-300 rounded-full focus:outline-none focus:border-gray-500 transform hover:scale-110 transition-transform duration-300"
-      >
-        <img
-          src="assets/images/2.jpg"
-          alt="Car 1"
-          class="w-full h-full object-cover rounded-full"
-        />
-      </button>
-      <button
-        (click)="showImage('assets/images/3.jpg')"
-        class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 border border-gray-300 rounded-full focus:outline-none focus:border-gray-500 mx-4 transform hover:scale-110 transition-transform duration-300"
-      >
-        <img
-          src="assets/images/3.jpg"
-          alt="Car 2"
-          class="w-full h-full object-cover rounded-full"
-        />
-      </button>
-      <button
-        (click)="showImage('assets/images/4.jpg')"
-        class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 border border-gray-300 rounded-full focus:outline-none focus:border-gray-500 transform hover:scale-110 transition-transform duration-300"
-      >
-        <img
-          src="assets/images/4.jpg"
-          alt="Car 3"
-          class="w-full h-full object-cover rounded-full"
-        />
-      </button>
+
+
+    <!-- Product info -->
+    <div
+      class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+      <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h1
+          class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{car?.brandName + " " + car?.name + " " + car?.year}}</h1>
+      </div>
+      <div class="mt-4 lg:row-span-3 lg:mt-0">
+        <h2 class="sr-only">Product information</h2>
+        <p class="text-3xl tracking-tight text-gray-900">{{car?.price + " AED"}}</p>
+
+
+        <button type="submit"
+                class="mt-20 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Get It Now
+        </button>
+      </div>
+      <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+        <h3 class="sr-only">Description</h3>
+        <article class="space-y-6 text-base text-gray-900">{{car?.description}}
+        </article>
+      </div>
     </div>
-    <!-- Image Selector End -->
-  </div>
-  <!-- Right Column -->
-  <div class="w-full md:w-1/2 px-6">
-    <!-- Product Title -->
-    <h2 class="text-xl sm:text-xl md:text-xl lg:text-xl font-bold text-gray-800 mt-4">Tesla Model S</h2>
-    <!-- Product Type -->
-    <p class="text-lg text-gray-500 mt-2">Electric Sedan</p>
-    <!-- Product Year and Price -->
-    <div class="flex items-center mt-4">
-      <p class="text-2xl font-semibold text-gray-700">2023</p>
-      <p class="text-2xl font-semibold text-blue-950 ml-auto">$69,420</p>
-    </div>
-    <!-- Product Description -->
-    <p class="text-lg text-gray-600 mt-6">
-      The Tesla Model S is an all-electric five-door liftback sedan produced by
-      Tesla, Inc. It was introduced on June 22, 2012, for the 2013 model year.
-      The Model S Long Range Plus has an EPA range of 402 miles (647 km), higher
-      than that of any other battery electric car.
-    </p>
-    <!-- Purchase Button -->
-    <button
-      class="bg-blue-900 text-white text-xl px-8 py-3 rounded-lg mt-6 hover:bg-blue-950 focus:outline-none focus:bg-blue-950">
-      Buy Now
-    </button>
   </div>
 </div>
+<app-footer></app-footer>

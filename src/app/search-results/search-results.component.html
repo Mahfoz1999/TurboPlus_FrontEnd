@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="md:pl-10 pt-12 md:pt-24 pb-12">
+  <div class="md:w-full pb-5 text-start">
+    <h1 class="text-4xl md:text-5xl font-bold  text-black"
+        [ngClass]="{'flex justify-end pr-12  text-right': translate.currentLang==='ar'}">{{translate.instant('search result')}}</h1>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div *ngFor="let car of cars">
+      <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl+car.imageUrl"
+                [name]="car.brandName+' '+ car.name+' '+car.year" [price]="car.price.toString()+' AED'"></app-card>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

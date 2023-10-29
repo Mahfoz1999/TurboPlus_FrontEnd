@@ -1,58 +1,124 @@
+<router-outlet #routerOutlet></router-outlet>
+
 <app-navbar></app-navbar>
 
 <div class="bg-white">
   <div class="pt-6">
     <!-- Image gallery -->
-
-
-    <div class="grid grid-cols-2 lg:px-36 md:px-24 gap-2">
-      <div *ngFor="let image of car!.images">
-        <div (click)="viewImage(image)">
-          <img class="h-auto max-w-full rounded-lg" [src]="apiBaseUrl+image" alt="">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:px-36 md:px-24 gap-4">
+      <div *ngFor="let image of car!.images" class="flex flex-wrap">
+        <div (click)="viewImage(image)" class="hover:shadow-lg">
+          <img
+            class="max-w-full object-fill rounded-lg"
+            [src]="apiBaseUrl + image"
+            [alt]="car?.name"
+          />
         </div>
       </div>
+      <app-image-model [imageSrc]="selectedImage" *ngIf="showImage" (close)="closeImage()"></app-image-model>
     </div>
-
-
-    <!-- Product info -->
     <div
       class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
       <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h1
-          class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{car?.brandName + " " + car?.name + " " + car?.year}}</h1>
+          class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+          {{ car?.brandName + " " + car?.name + " " + car?.year }}
+        </h1>
+        <h2 class="text-2xl font-serif tracking-tight text-gray-500 sm:text-2xl">Dubai-UAE</h2>
       </div>
       <div class="mt-4 lg:row-span-3 lg:mt-0">
-        <h2 class="sr-only">Product information</h2>
-        <p class="text-3xl tracking-tight text-gray-900">{{car?.price + " AED"}}</p>
-        <button type="submit"
-                class="mt-20 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-          Get It Now
-        </button>
+        <h2 class="sr-only text-black">Car information</h2>
+        <p class="text-3xl tracking-tight text-gray-900">
+          {{ car?.price + " AED" }}
+        </p>
+        <!-- Add the mileage limit here -->
+        <p class="text-sm text-gray-600">Mileage limit - 100 km for 1 day</p>
+        <!-- Add the free delivery here -->
+        <div class="flex items-center mt-2">
+          <svg
+            class="h-5 w-5 text-green-500 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span class="text-green-500 font-bold"
+            >Free delivery within 20 minutes</span
+          >
+        </div>
+        <!-- Add the date picker here -->
+        <label for="pick-date" class="font-bold mb-1 text-gray-700 block">Choose a date range</label>
+        <div style="display: flex; align-items: center;">
+          <div style="margin-right: 10px;">
+            <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
+            <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
+          </div>
+          <div style="margin-left: 10px;">
+            <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
+            <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
+          </div>
+        </div>      
+       
+<a [href]="whatsappLink"><button
+  type="submit"
+  class=" mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-500 to-blue-500 px-8 py-3 text-base font-medium text-white hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+  Get It Now
+</button></a>
       </div>
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
         <h3 class="sr-only">Description</h3>
-        <article class="space-y-6 text-base text-gray-900">{{car?.description}}
+        <article class="space-y-6 text-base text-gray-900">
+          {{ car?.description }}
         </article>
       </div>
     </div>
   </div>
 </div>
-<div class="md:pl-10 pt-12 md:pt-24 pb-12" *ngIf="brand!.cars.length > 0">
+<div
+  class="md:pl-10 pt-12 md:pt-24 pb-12"
+  *ngIf="brand!.cars.length > 0"
+>
   <div class="md:w-full pb-5 text-start">
-    <p class="text-2xl md:text-3xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">Same Brand</p>
-    <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{brand!.name}}</h1>
+    <p
+      class="text-2xl md:text-3xl font-normal text-black"
+      [ngClass]="{ 'flex justify-end pr-12': translate.currentLang === 'ar' }">
+      Same Brand
+    </p>
+    <h1
+      class="text-4xl md:text-6xl font-bold text-black"
+      [ngClass]="{ 'flex justify-end pr-12': translate.currentLang === 'ar' }"
+    >
+      {{ brand!.name }}
+    </h1>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     <div *ngFor="let car of brand!.cars; let i = index">
       <ng-container *ngIf="i < 4">
-        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl+car.imageUrl"
-                  [name]="  car.name+' '+car.year" [price]="car.price.toString()+' AED'"></app-card>
+        <app-card
+          [routerLink]="['/car-profile']"
+          [queryParams]="{ carId: car.id }"
+          [image]="apiBaseUrl + car.imageUrl"
+          [name]="car.name + ' ' + car.year"
+          [price]="car.price.toString() + ' AED'"
+        ></app-card>
       </ng-container>
-    </div>      
+    </div>
   </div>
-  <div class="flex flex-col md:flex-row justify-center items-center pt-4" *ngIf="brand!.cars.length>4">
-    <a [routerLink]="['/brand']" [queryParams]="{ brandId: brand!.id ,brandName: brand!.name}"
-       class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+  <div
+    class="flex flex-col md:flex-row justify-center items-center pt-4"
+    *ngIf="brand!.cars.length > 4"
+  >
+    <a
+      [routerLink]="['/brand']"
+      [queryParams]="{ brandId: brand!.id, brandName: brand!.name }"
+      class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg font-bold  font-sans"
+      >{{ translate.instant("Discover More") }}</a
+    >
   </div>
 </div>
 <app-footer></app-footer>

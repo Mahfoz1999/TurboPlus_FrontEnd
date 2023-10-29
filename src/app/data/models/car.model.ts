@@ -7,5 +7,6 @@ export interface Car {
   brandId: string;
   description: string;
   imageUrl: string;
+  creationDate:string;
   coverPhotoUrl: string;
 }

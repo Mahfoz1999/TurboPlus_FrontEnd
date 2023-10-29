@@ -21,13 +21,17 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsLetterComponent } from './news-letter/news-letter.component';
 import { RouterModule } from '@angular/router';
-import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import {FormsModule} from "@angular/forms";
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DubaiSectionComponent } from './dubai-section/dubai-section.component';
 import { ReviewComponent } from './review/review.component';
 import { BrandComponent } from './brand/brand.component';
-
+import { AddCarComponent } from './add-car/add-car.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
+import { UpdateCarComponent } from './update-car/update-car.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { ImageModelComponent } from './image-model/image-model.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,11 +46,15 @@ import { BrandComponent } from './brand/brand.component';
     FAQComponent,
     AboutUsComponent,
     NewsLetterComponent,
-    ImageViewerComponent,
     SearchResultsComponent,
     DubaiSectionComponent,
     ReviewComponent,
     BrandComponent,
+    AddCarComponent,
+    DashbordComponent,
+    UpdateCarComponent,
+    DatePickerComponent,
+    ImageModelComponent,
   ],
     imports: [
         BrowserModule,
@@ -64,6 +72,7 @@ import { BrandComponent } from './brand/brand.component';
         }),
         BrowserAnimationsModule,
         FormsModule,
+        ToastrModule.forRoot()
     ],
   providers: [],
   bootstrap: [AppComponent]

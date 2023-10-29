@@ -1,0 +1,79 @@
+<section class="bg-gray-900 py-3 sm:py-5">
+    <div class="px-4 mx-auto max-w-screen-2xl lg:px-12">
+        <div class="relative overflow-hidden  shadow-md bg-gray-800 sm:rounded-lg">
+            <div class="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
+                <div class="flex items-center flex-1 space-x-4">
+                    <h5>
+                        <span class="text-gray-500">All Cars : </span>
+                        <span class="text-white">{{cars.length}}</span>
+                    </h5>
+                </div>
+                <div class="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
+                    <button [routerLink]="['/add-car']" type="button" class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg   focus:ring-4  bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-primary-800">
+                        Add New Car
+                    </button>
+                    <button type="button" class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium   border  rounded-lg focus:outline-none focus:z-10 focus:ring-4  focus:ring-gray-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700">
+                        Show Brands
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left  text-gray-400">
+                    <thead class="text-xs  uppercase  bg-gray-700 text-gray-400">
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all" type="checkbox" class="w-4 h-4  rounded text-primary-600 focus:ring-primary-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                                    <label for="checkbox-all" class="sr-only">checkbox</label>
+                                </div>
+                            </th>
+                            <th scope="col" class="px-4 py-3">Car</th>
+                            <th scope="col" class="px-4 py-3">Brand</th>
+                            <th scope="col" class="px-4 py-3">Year</th>
+                            <th scope="col" class="px-4 py-3">Price</th>
+                            <th scope="col" class="px-4 py-3">Creation Date</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let car of cars">
+                        <tr class="border-b border-gray-600  hover:bg-gray-700">
+                            <td class="w-4 px-4 py-3">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-1" type="checkbox" onclick="event.stopPropagation()" class="w-4 h-4   rounded text-primary-600  focus:ring-primary-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-4 py-2 font-medium  whitespace-nowrap text-white">
+                                <img [src]="apiBaseUrl+car.imageUrl" [alt]="car.name" class="w-auto h-8 mr-3">
+                                {{car.name}}
+                            </th>
+                            <td class="px-4 py-2">
+                                <span class=" text-xs font-medium px-2 py-0.5 rounded bg-primary-900 text-primary-300">{{car.brandName}}</span>
+                            </td>
+                            <td class="px-4 py-2 font-medium  whitespace-nowrap text-white">
+                                <p>{{car.year}}</p>
+                            </td>
+                            <td class="px-4 py-2 font-medium  whitespace-nowrap text-white">
+                                <p>{{"$"+car.price}}</p>
+                            </td>
+                            <td class="px-4 py-2 font-medium  whitespace-nowrap text-white">
+                                <p>{{car.creationDate}}</p>
+                            </td>
+                            <td>
+                            <button [routerLink]="['/update-car']" [queryParams]="{ carId: car.id }">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-6 text-primary-300 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                              </svg>
+                            </button>
+                            <button (click)="removeCar(car.id)" >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-700">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>                                  
+                            </button>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </section>

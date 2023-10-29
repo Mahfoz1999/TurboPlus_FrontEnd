@@ -1,0 +1,57 @@
+<div class="relative  p-4 w-full max-w-screen-lg mx-auto">
+    <!-- Modal content -->
+    <div class="relative p-4 rounded-lg shadow bg-gray-800 sm:p-5">
+        <!-- Modal header -->
+        <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 border-gray-600">
+            <h3 class="text-lg font-semibold text-white">
+                Add Car
+            </h3>
+        </div>
+        <!-- Modal body -->
+        <form action="#" (ngSubmit)="onSubmit()" id="carForm" enctype="multipart/form-data">
+            <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                <!-- Add a file input for the main car image -->
+                <div>
+                    <label for="mainImage" class="block mb-2 text-sm font-medium text-white">Main Image</label>
+                    <input type="file" name="mainImage" id="mainImage" (change)="onMainImageChange($event)" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" accept="image/*" required>
+                </div>
+                <!-- Add a file input for the cover image -->
+                <div>
+                    <label for="coverImage" class="block mb-2 text-sm font-medium text-white">Cover Image</label>
+                    <input type="file" name="coverImage" id="coverImage" (change)="onCoverImageChange($event)" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" accept="image/*" required>
+                </div>
+                <div>
+                    <label for="name" class="block mb-2 text-sm font-medium text-white">Name</label>
+                    <input type="text" [(ngModel)]="carData.name" name="name" id="name" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="Type Car name" required>
+                </div>
+                <div>
+                    <label for="year" class="block mb-2 text-sm font-medium text-white">Year</label>
+                    <input type="text" [(ngModel)]="carData.year" name="year" id="year" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="Car Year" required>
+                </div>
+                <div>
+                    <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
+                    <input type="number" [(ngModel)]="carData.price" name="price" id="price" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="$2999" required>
+                </div>
+                <div>
+                    <label for="brand" class="block mb-2 text-sm font-medium text-white">Brand</label>
+                    <select id="brand" name="brand" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" [(ngModel)]="carData.brandId">
+                        <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
+                    </select>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="description" class="block mb-2 text-sm font-medium text-white">Description</label>
+                    <textarea id="description" [(ngModel)]="carData.description" name="description" rows="4" class="block p-2.5 w-full text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" placeholder="Write product description here"></textarea>
+                </div>
+            </div>
+            <!-- Add multiple file inputs for car images -->
+            <div>
+                <label for="carImages" class="block mb-2 text-sm font-medium text-white">Car Images</label>
+                <input type="file" name="carImages[]" id="carImages" (change)="onCarImagesChange($event)" class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500" accept="image/*" multiple required>
+            </div>
+            <button type="submit" class="text-white mt-10 inline-flex items-center focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800">
+                <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                Add new Car
+            </button>
+        </form>
+    </div>
+</div>

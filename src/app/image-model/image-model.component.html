@@ -1,0 +1,11 @@
+<div class="fixed inset-0 z-20 overflow-y-auto bg-black bg-opacity-75 flex items-center justify-center" (click)="closeImage()">
+    <div class="max-w-4xl m-auto p-4">
+      <div class="relative p-4 bg-white rounded-lg">
+        <button class="absolute top-0 right-0 m-4 text-2xl text-gray-600" (click)="closeImage()">
+          <span>&times;</span>
+        </button>
+        <img [src]="imageSrc" alt="Image" class="max-w-full max-h-96 m-auto" />
+      </div>
+    </div>
+  </div>
+  

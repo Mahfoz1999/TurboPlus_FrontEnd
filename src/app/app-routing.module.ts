@@ -10,6 +10,7 @@ import { BrandComponent } from './brand/brand.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { UpdateCarComponent } from './update-car/update-car.component';
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'brand', component: BrandComponent},
   {path: 'add-car',component: AddCarComponent},
   {path: 'update-car',component: UpdateCarComponent},
-  {path: 'dashbord',component: DashbordComponent},
+  {path: 'dashboard',component: DashbordComponent},
+  {path: 'admin',component: LoginComponent},
 ];
 
 @NgModule({

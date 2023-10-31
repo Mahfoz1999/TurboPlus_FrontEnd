@@ -32,6 +32,7 @@ import { UpdateCarComponent } from './update-car/update-car.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { ImageModelComponent } from './image-model/image-model.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { ToastrModule } from 'ngx-toastr';
     UpdateCarComponent,
     DatePickerComponent,
     ImageModelComponent,
+    LoginComponent,
   ],
     imports: [
         BrowserModule,

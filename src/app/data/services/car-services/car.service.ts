@@ -4,8 +4,8 @@ import {Observable} from "rxjs";
 import {Car} from "../../models/car.model";
 import {apiBaseUrl} from "../../api-config";
 import {CarInfo} from "../../models/carInfo.model";
-import { CarForm } from '../../models/car.form';
-import { CarUpdateForm } from '../../models/car.update.form';
+import {CarForm} from '../../models/car.form';
+import {CarUpdateForm} from '../../models/car.update.form';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,7 @@ export class CarService {
   getCarsByBrand(brandId: string): Observable<Car[]> {
     return this.http.get<Car[]>(`${apiBaseUrl}api/Car/GetCarsByBrand?brandId=${brandId}`);
   }
+
   getCarsByQuery(query: string): Observable<Car[]> {
     return this.http.get<Car[]>(`${apiBaseUrl}api/Car/GetCarsByQuery?query=${query}`);
   }
@@ -33,12 +34,15 @@ export class CarService {
   getCar(id: string): Observable<CarInfo> {
     return this.http.get<CarInfo>(`${apiBaseUrl}api/Car/GetCar?Id=${id}`);
   }
+
   getRandomCar(): Observable<CarInfo> {
     return this.http.get<CarInfo>(`${apiBaseUrl}api/Car/GetRandomCar`);
   }
+
   removeCar(id: string) {
     return this.http.delete(`${apiBaseUrl}api/Car/RemoveCar?Id=${id}`);
   }
+
   AddCar(carData: CarForm) {
     console.log(carData.coverPhoto);
     console.log(carData.mainImage);
@@ -50,12 +54,12 @@ export class CarService {
     formData.append('Price', carData.price.toString()); // تأكد من أنه عدد مع النقاط العائمة
     formData.append('BrandId', carData.brandId);
     formData.append('Description', carData.description);
-    
+
     // تحقق من أن Images هي مصفوفة من الملفات
     for (const carImage of carData.carImages) {
       formData.append('Images', carImage);
     }
-  
+
     this.http.post(apiBaseUrl + 'api/Car/AddCar', formData).subscribe(
       (response) => {
         console.log(response);
@@ -65,6 +69,7 @@ export class CarService {
       }
     );
   }
+
   UpdateCar(carData: CarUpdateForm) {
     const formData = new FormData();
     formData.append('Id', carData.id);
@@ -75,7 +80,7 @@ export class CarService {
     formData.append('Price', carData.price.toString()); // تأكد من أنه عدد مع النقاط العائمة
     formData.append('BrandId', carData.brandId);
     formData.append('Description', carData.description);
-    
+
     this.http.put(apiBaseUrl + 'api/Car/UpdateCar', formData).subscribe(
       (response) => {
         console.log(response);
@@ -85,5 +90,5 @@ export class CarService {
       }
     );
   }
-  
+
 }

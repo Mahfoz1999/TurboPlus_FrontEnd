@@ -47,27 +47,30 @@
             />
           </svg>
           <span class="text-green-500 font-bold"
-            >Free delivery within 20 minutes</span
+          >Free delivery within 20 minutes</span
           >
         </div>
         <!-- Add the date picker here -->
-        <label for="pick-date" class="font-bold mb-1 text-gray-700 block">Choose a date range</label>
+        <label class="font-bold mb-1 text-gray-700 block">Choose a date range</label>
         <div style="display: flex; align-items: center;">
           <div style="margin-right: 10px;">
             <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
-            <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
+            <app-date-picker id="start-date"
+                             (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
           </div>
           <div style="margin-left: 10px;">
             <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
-            <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
+            <app-date-picker id="end-date"
+                             (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
           </div>
-        </div>      
-       
-<a [href]="whatsappLink"><button
-  type="submit"
-  class=" mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-500 to-blue-500 px-8 py-3 text-base font-medium text-white hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-  Get It Now
-</button></a>
+        </div>
+        <button
+          (click)="navigateToWhatsApp()"
+          type="submit"
+          class=" mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-500 to-blue-500 px-8 py-3 text-base font-medium text-white hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Get It Now
+        </button>
+
       </div>
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
         <h3 class="sr-only">Description</h3>
@@ -78,47 +81,5 @@
     </div>
   </div>
 </div>
-<div
-  class="md:pl-10 pt-12 md:pt-24 pb-12"
-  *ngIf="brand!.cars.length > 0"
->
-  <div class="md:w-full pb-5 text-start">
-    <p
-      class="text-2xl md:text-3xl font-normal text-black"
-      [ngClass]="{ 'flex justify-end pr-12': translate.currentLang === 'ar' }">
-      Same Brand
-    </p>
-    <h1
-      class="text-4xl md:text-6xl font-bold text-black"
-      [ngClass]="{ 'flex justify-end pr-12': translate.currentLang === 'ar' }"
-    >
-      {{ brand!.name }}
-    </h1>
-  </div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    <div *ngFor="let car of brand!.cars; let i = index">
-      <ng-container *ngIf="i < 4">
-        <app-card
-          [routerLink]="['/car-profile']"
-          [queryParams]="{ carId: car.id }"
-          [image]="apiBaseUrl + car.imageUrl"
-          [name]="car.name + ' ' + car.year"
-          [price]="car.price.toString() + ' AED'"
-        ></app-card>
-      </ng-container>
-    </div>
-  </div>
-  <div
-    class="flex flex-col md:flex-row justify-center items-center pt-4"
-    *ngIf="brand!.cars.length > 4"
-  >
-    <a
-      [routerLink]="['/brand']"
-      [queryParams]="{ brandId: brand!.id, brandName: brand!.name }"
-      class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg font-bold  font-sans"
-      >{{ translate.instant("Discover More") }}</a
-    >
-  </div>
-</div>
+
 <app-footer></app-footer>

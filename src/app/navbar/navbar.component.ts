@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {TranslationService} from '../translation.service';
-import {TranslateService} from '@ngx-translate/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { TranslationService } from '../translation.service';
+import { TranslateService } from '@ngx-translate/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,21 +11,8 @@ import {NavigationEnd, Router} from '@angular/router';
 export class NavbarComponent {
   isMobileMenuOpen: boolean = false;
   searchTerm: string = '';
-
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
   currentRoute: string = '';
-
-  search() {
-    console.log(this.searchTerm);
-    if (this.searchTerm.trim() !== '') {
-      // Navigate to the search results page with the search term as a query parameter
-      this.router.navigate(['/search-results'], {queryParams: {query: this.searchTerm}});
-    }
-
-  }
+  selectedLanguage: string = ''; // إضافة اللغة المحددة هنا
 
   constructor(public translate: TranslateService, private translationService: TranslationService, private router: Router) {
     this.router.events.subscribe((event) => {
@@ -33,10 +20,33 @@ export class NavbarComponent {
         this.currentRoute = event.url;
       }
     });
+
+    // احصل على اللغة المحددة من localStorage واستخدمها كقيمة افتراضية للقائمة
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    if (selectedLanguage) {
+      this.selectedLanguage = selectedLanguage;
+    } else {
+      this.selectedLanguage = 'en'; // يمكن تعيين اللغة الافتراضية هنا
+    }
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  search() {
+    console.log(this.searchTerm);
+    if (this.searchTerm.trim() !== '') {
+      // Navigate to the search results page with the search term as a query parameter
+      this.router.navigate(['/search-results'], { queryParams: { query: this.searchTerm } });
+    }
   }
 
   changeLanguage(event: Event) {
     const selectedLanguage = (event.target as HTMLSelectElement).value;
     this.translationService.changeLanguage(selectedLanguage);
+
+    // تحديث اللغة المحددة في القائمة المنسدلة عن طريق تعيينها بناءً على اللغة المحددة
+    this.selectedLanguage = selectedLanguage;
   }
 }

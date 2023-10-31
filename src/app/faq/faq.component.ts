@@ -7,6 +7,10 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./faq.component.css']
 })
 export class FAQComponent {
+  faq1 = { isExpanded: false };
+  faq2 = { isExpanded: false };
+  faq3 = { isExpanded: false };
+  faq4 = { isExpanded: false };
   faqList = [
     {
       question: 'Is there a minimum rental age?',

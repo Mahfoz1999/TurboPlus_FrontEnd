@@ -46,7 +46,7 @@
         <div class="relative">
           <label for="language" class="sr-only">Select Language</label>
           <select id="language" class="text-black rounded-md p-2 focus:ring focus:ring-gray-400 focus:outline-none"
-                  (change)="changeLanguage($event)">
+                  [(ngModel)]="selectedLanguage" (change)="changeLanguage($event)">
             <option value="en">English</option>
             <option value="ar">العربية</option>
             <option value="ru">Русский</option>

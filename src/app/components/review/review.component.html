@@ -5,7 +5,7 @@
       <div *ngFor="let rating of ratings">
         <div *ngIf="rating.id === currentRating" class="flex items-center">
           <div *ngFor="let star of rating.stars; let i = index">
-            <img src="assets/svg/star.svg" alt="star" class="w-5 h-5 mr-1"
+            <img src="../../../assets/svg/star.svg" alt="star" class="w-5 h-5 mr-1"
                  [ngClass]="{'opacity-50': star === 0, 'animate-pulse': i === 0}">
           </div>
         </div>

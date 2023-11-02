@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {apiBaseUrl} from "../data/api-config";
-import {CarService} from "../data/services/car-services/car.service";
-import {Car} from "../data/models/car.model";
+import {apiBaseUrl} from "../../data/api-config";
+import {CarService} from "../../data/services/car-services/car.service";
+import {Car} from "../../data/models/car.model";
 import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-brand',

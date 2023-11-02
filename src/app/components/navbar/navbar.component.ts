@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslationService } from '../translation.service';
+import { TranslationService } from '../../translation.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NavigationEnd, Router } from '@angular/router';
 

@@ -1,8 +1,8 @@
 import {AfterViewInit, Component} from '@angular/core';
 import Swiper from "swiper";
-import {Car} from "../data/models/car.model";
-import {CarService} from "../data/services/car-services/car.service";
-import {apiBaseUrl} from "../data/api-config";
+import {Car} from "../../data/models/car.model";
+import {CarService} from "../../data/services/car-services/car.service";
+import {apiBaseUrl} from "../../data/api-config";
 
 @Component({
   selector: 'app-car-slider',

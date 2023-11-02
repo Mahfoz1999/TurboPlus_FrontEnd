@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {CarService} from "../data/services/car-services/car.service";
-import {Car} from "../data/models/car.model";
-import {apiBaseUrl} from "../data/api-config";
-import {CarInfo} from "../data/models/carInfo.model";
+import {CarService} from "../../data/services/car-services/car.service";
+import {Car} from "../../data/models/car.model";
+import {apiBaseUrl} from "../../data/api-config";
+import {CarInfo} from "../../data/models/carInfo.model";
 import { Router, NavigationEnd } from '@angular/router';
-import {Brand} from "../data/models/brand.model";
-import {BrandService} from "../data/services/brand-services/brand.service";
+import {Brand} from "../../data/models/brand.model";
+import {BrandService} from "../../data/services/brand-services/brand.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

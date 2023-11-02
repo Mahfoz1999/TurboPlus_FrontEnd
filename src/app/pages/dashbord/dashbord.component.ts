@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CarService } from '../data/services/car-services/car.service';
-import { apiBaseUrl } from '../data/api-config';
-import { Car } from '../data/models/car.model';
+import { CarService } from '../../data/services/car-services/car.service';
+import { apiBaseUrl } from '../../data/api-config';
+import { Car } from '../../data/models/car.model';
 
 @Component({
   selector: 'app-dashbord',

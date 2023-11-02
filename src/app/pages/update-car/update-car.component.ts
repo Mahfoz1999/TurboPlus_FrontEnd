@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BrandService } from '../data/services/brand-services/brand.service';
-import { CarService } from '../data/services/car-services/car.service';
-import { Brand } from '../data/models/brand.model';
+import { BrandService } from '../../data/services/brand-services/brand.service';
+import { CarService } from '../../data/services/car-services/car.service';
+import { Brand } from '../../data/models/brand.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarUpdateForm } from '../data/models/car.update.form';
-import { CarInfo } from '../data/models/carInfo.model';
+import { CarUpdateForm } from '../../data/models/car.update.form';
+import { CarInfo } from '../../data/models/carInfo.model';
 
 @Component({
   selector: 'app-update-car',
@@ -31,7 +31,7 @@ export class UpdateCarComponent implements OnInit{
         this.mainImageFile = event.target.files[0];
       }
     }
-    
+
     onCoverImageChange(event: any) {
       if (event.target.files && event.target.files.length > 0) {
         this.coverImageFile = event.target.files[0];

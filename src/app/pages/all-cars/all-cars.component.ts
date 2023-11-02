@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Car} from "../data/models/car.model";
+import {Car} from "../../data/models/car.model";
 import {TranslateService} from "@ngx-translate/core";
-import {CarService} from "../data/services/car-services/car.service";
-import {apiBaseUrl} from '../data/api-config';
+import {CarService} from "../../data/services/car-services/car.service";
+import {apiBaseUrl} from '../../data/api-config';
 
 @Component({
   selector: 'app-all-cars',

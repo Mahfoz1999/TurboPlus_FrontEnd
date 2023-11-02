@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Brand} from '../data/models/brand.model';
-import {BrandService} from '../data/services/brand-services/brand.service';
-import {CarService} from '../data/services/car-services/car.service';
-import {CarForm} from '../data/models/car.form';
+import {Brand} from '../../data/models/brand.model';
+import {BrandService} from '../../data/services/brand-services/brand.service';
+import {CarService} from '../../data/services/car-services/car.service';
+import {CarForm} from '../../data/models/car.form';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({

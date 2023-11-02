@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {CarInfo} from "../data/models/carInfo.model";
-import {CarService} from "../data/services/car-services/car.service";
-import {BrandService} from '../data/services/brand-services/brand.service';
+import {CarInfo} from "../../data/models/carInfo.model";
+import {CarService} from "../../data/services/car-services/car.service";
+import {BrandService} from '../../data/services/brand-services/brand.service';
 import {ActivatedRoute} from '@angular/router';
-import {apiBaseUrl} from "../data/api-config";
+import {apiBaseUrl} from "../../data/api-config";
 import {initFlowbite} from "flowbite";
-import {BrandInfo} from '../data/models/brandInfo.model';
+import {BrandInfo} from '../../data/models/brandInfo.model';
 import {TranslateService} from "@ngx-translate/core";
 
 @Component({

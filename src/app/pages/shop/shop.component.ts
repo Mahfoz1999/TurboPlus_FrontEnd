@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {apiBaseUrl} from "../data/api-config";
-import {CarService} from "../data/services/car-services/car.service";
-import {Car} from "../data/models/car.model";
-import {BrandService} from "../data/services/brand-services/brand.service";
-import {BrandInfo} from "../data/models/brandInfo.model";
+import {apiBaseUrl} from "../../data/api-config";
+import {CarService} from "../../data/services/car-services/car.service";
+import {Car} from "../../data/models/car.model";
+import {BrandService} from "../../data/services/brand-services/brand.service";
+import {BrandInfo} from "../../data/models/brandInfo.model";
 
 @Component({
   selector: 'app-shop',
@@ -32,6 +32,6 @@ export class ShopComponent implements OnInit{
     });
 
   }
-  
+
 
 }

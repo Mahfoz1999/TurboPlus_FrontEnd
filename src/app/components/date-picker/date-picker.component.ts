@@ -25,7 +25,7 @@ export class DatePickerComponent implements OnInit{
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   showDatepicker = false;
   datepickerValue!: string;
-  month!: number; // !: mean promis it will not be null, and it will definitely be assigned
+  month!: number; // !: mean promis it.json will not be null, and it.json will definitely be assigned
   year!: number;
   no_of_days = [] as number[];
   blankdays = [] as number[];

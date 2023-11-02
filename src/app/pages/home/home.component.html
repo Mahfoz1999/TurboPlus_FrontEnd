@@ -1,6 +1,6 @@
-<main>
+<main *ngIf="!loading">
   <section class="bg-cover bg-center h-screen relative object-fill"
-       [ngStyle]="{'background-image': 'url('+apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl+')' }">
+           [ngStyle]="{'background-image': 'url('+apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl+')' }">
     <app-navbar></app-navbar>
     <div class="md:pt-24 pt-12 pb-12 text-white m-4 md:m-16 font-roboto space-x-5 text-center">
       <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('new in stock') }}</p>
@@ -21,21 +21,7 @@
     <app-tip [boldText]="translate.instant('24/7')" num="03" [body]="translate.instant('tip1')"></app-tip>
   </section>
 
-  <section class="md:flex justify-center pl-4 md:pl-10 pt-12 md:pt-24 items-center text-start"
-       [ngClass]="{'flex-row-reverse': translate.currentLang==='ar'}">
-    <div class="md:w-1/2 pb-2.5 pr-4 md:pr-10 text-center md:text-left"
-         [ngClass]="{'direction': translate.currentLang === 'ar' ? 'rtl' : 'ltr'}">
-      <p class="text-2xl md:text-3xl font-normal text-black">{{translate.instant('CLASSICS')}}</p>
-      <h1
-        class="text-4xl md:text-6xl font-bold text-black">{{translate.instant('Discover a New Level of Comfort') }}</h1>
-      <p class="text-1xl pt-6 font-normal text-gray-700">{{translate.instant('text1') }}</p>
-      <a [routerLink]="['/shop']"
-         class="inline-block mt-5 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More') }}</a>
-    </div>
-    <div class="md:w-1/2 md:order-last">
-      <div class="relative Image1" [ngStyle]="{'background-image': 'url(' + Image1 + ')'}"></div>
-    </div>
-  </section>
+
 
   <section class="md:pl-10 md:pt-24 pt-12 ">
     <div class="md:w-full  pb-10 ">
@@ -75,7 +61,7 @@
 
   <app-dubai-section></app-dubai-section>
   <section class="bg-cover mt-36 bg-center h-screen relative object-fill flex flex-col justify-center items-center"
-       [ngStyle]="{'background-image': 'url('+apiBaseUrl + car?.coverPhotoUrl+')' }">
+           [ngStyle]="{'background-image': 'url('+apiBaseUrl + car?.coverPhotoUrl+')' }">
     <div class="md:pt-24 pt-12 pb-12 text-white  m-4 md:m-16 font-roboto space-x-5 text-center">
       <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('Car Of The Day')}}</p>
       <h1
@@ -87,21 +73,12 @@
          class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + car?.brandName + " " + car?.name + " " + car?.year }}</a>
     </div>
   </section>
-  <app-review></app-review>
-
-
-
-
-  <section class="pt-52">
-    <div class="relative Image3" [ngStyle]="{'background-image': 'url(' + Image3 + ')'}">
-      <div
-        class="container mx-auto px-4 md:px-0 md:w-full md:pb-10 text-white md:pl-4 md:pr-10 pt-28 md:pt-40 flex flex-col justify-center items-start">
-        <h1
-          class="text-3xl md:text-4xl pt-4 pb-4 font-bold max-w-screen-md md:w-11/12 text-start">{{translate.instant('Get A Fair')}}</h1>
-        <p class="text-lg md:text-2xl max-w-screen-md font-sans text-start">{{translate.instant('text2')}}</p>
-      </div>
-    </div>
-  </section>
+  <br>
+  <br>
+  <br>
 
   <app-footer></app-footer>
 </main>
+<div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white opacity-80">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+</div>

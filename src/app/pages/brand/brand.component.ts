@@ -12,9 +12,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class BrandComponent implements OnInit{
   cars: Car[] = [];
   brandName!:string;
+  loading: boolean = true;
   constructor(public translate: TranslateService,private carService: CarService,private route: ActivatedRoute,private router: Router) {}
-  
+
   ngOnInit(): void {
+    this.loading=true;
     this.route.queryParams.subscribe(params => {
       const brandId = params['brandId'];
       this.brandName = params['brandName'];
@@ -24,6 +26,7 @@ export class BrandComponent implements OnInit{
         });
       }
     });
+    this.loading=false;
   }
   protected readonly apiBaseUrl = apiBaseUrl;
 }

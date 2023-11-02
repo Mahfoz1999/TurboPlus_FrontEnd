@@ -12,6 +12,7 @@ import {BrandInfo} from "../data/models/brandInfo.model";
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit{
+  loading: boolean = true;
   cars: Car[] = [];
   brands:BrandInfo[] =[];
   Image1:string='assets/images/pexels-mike-bird-120049.jpg';
@@ -21,11 +22,16 @@ export class ShopComponent implements OnInit{
     protected readonly apiBaseUrl = apiBaseUrl;
 
   ngOnInit(): void {
+    this.loading = true;
     this.brandService.getBrandsWithCars().subscribe(brands => {
       this.brands=brands;
     })
     this.carService.getCars().subscribe(cars => {
       this.cars = cars;
+      this.loading = false;
     });
+
   }
+  
+
 }

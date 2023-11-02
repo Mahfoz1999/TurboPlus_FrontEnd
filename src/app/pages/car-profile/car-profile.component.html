@@ -1,0 +1,91 @@
+<head>
+  <title>تأجير سيارات فاخرة في دبي - {{ car?.brandName + " " + car?.name + " " + car?.year }}</title>
+</head>
+
+<app-navbar></app-navbar>
+<ng-container *ngIf="!loading">
+  <div class="bg-white">
+    <div class="pt-6">
+      <!-- Image gallery -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:px-36 md:px-24 gap-4">
+        <div *ngFor="let image of car!.images" class="flex flex-wrap">
+          <div (click)="viewImage(image)" class="hover:shadow-lg">
+            <img
+              class="max-w-full object-cover h-full rounded-lg"
+              [src]="apiBaseUrl + image"
+              [alt]="car?.name"
+            />
+          </div>
+        </div>
+        <app-image-model [imageSrc]="selectedImage" *ngIf="showImage" (close)="closeImage()"></app-image-model>
+      </div>
+      <div
+        class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+          <h1
+            class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+            {{ car?.brandName + " " + car?.name + " " + car?.year }}
+          </h1>
+          <h2 class="text-2xl font-serif tracking-tight text-gray-500 sm:text-2xl">Dubai-UAE</h2>
+        </div>
+        <div class="mt-4 lg:row-span-3 lg:mt-0">
+          <h2 class="sr-only text-black">Car information</h2>
+          <p class="text-3xl tracking-tight text-gray-900">
+            {{ car?.price + " AED" }}
+          </p>
+          <!-- Add the mileage limit here -->
+          <p class="text-sm text-gray-600">Mileage limit - 100 km for 1 day</p>
+          <!-- Add the free delivery here -->
+          <div class="flex items-center mt-2">
+            <svg
+              class="h-5 w-5 text-green-500 mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span class="text-green-500 font-bold"
+            >Free delivery within 20 minutes</span
+            >
+          </div>
+          <!-- Add the date picker here -->
+          <label class="font-bold mb-1 text-gray-700 block">Choose a date range</label>
+          <div style="display: flex; align-items: center;">
+            <div style="margin-right: 10px;">
+              <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
+              <app-date-picker id="start-date"
+                               (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
+            </div>
+            <div style="margin-left: 10px;">
+              <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
+              <app-date-picker id="end-date"
+                               (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
+            </div>
+          </div>
+          <button
+            (click)="navigateToWhatsApp()"
+            type="submit"
+            class=" mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-500 to-blue-500 px-8 py-3 text-base font-medium text-white hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Get It Now
+          </button>
+
+        </div>
+        <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+          <h3 class="sr-only">Description</h3>
+          <article class="space-y-6 text-base text-gray-900">
+            {{ car?.description }}
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ng-container>
+<div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white opacity-80">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+</div>

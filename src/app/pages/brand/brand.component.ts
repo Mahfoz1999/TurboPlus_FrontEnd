@@ -15,15 +15,13 @@ export class BrandComponent implements OnInit{
   loading: boolean = true;
   constructor(public translate: TranslateService,private carService: CarService,private route: ActivatedRoute,private router: Router) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loading=true;
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(async params => {
       const brandId = params['brandId'];
       this.brandName = params['brandName'];
       if (brandId) {
-        this.carService.getCarsByBrand(brandId).subscribe(cars => {
-          this.cars = cars;
-        });
+        this.cars=await this.carService.getCarsByBrand(brandId);
       }
     });
     this.loading=false;

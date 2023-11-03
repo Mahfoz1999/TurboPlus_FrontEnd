@@ -64,9 +64,7 @@ export class AddCarComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.brandService.getBrands().subscribe(data => {
-      this.brands = data;
-    });
+  async ngOnInit() {
+    this.brands=await this.brandService.getBrands();
   }
 }

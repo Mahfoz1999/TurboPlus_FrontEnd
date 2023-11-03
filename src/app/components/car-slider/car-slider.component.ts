@@ -16,13 +16,9 @@ export class CarSliderComponent implements  AfterViewInit {
 
   private swiper?: Swiper; // تعريف متغير Swiper
 
-  ngAfterViewInit(): void {
-    this.carService.getLastFourCars().subscribe(cars => {
-      this.cars = cars;
-    });
-
-    // تهيئة Swiper
-    this.swiper = new Swiper('.swiper-container', {
+  async ngAfterViewInit() {
+    this.cars= await this.carService.getLastFourCars();
+      this.swiper = new Swiper('.swiper-container', {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 30,
@@ -34,8 +30,6 @@ export class CarSliderComponent implements  AfterViewInit {
         delay: 5000,
       },
     });
-
-    // تغيير الشريحة كل 10 ثواني
     setInterval(() => {
       const currentIndex = this.swiper!.activeIndex;
       const nextIndex = (currentIndex + 1) % this.cars.length;

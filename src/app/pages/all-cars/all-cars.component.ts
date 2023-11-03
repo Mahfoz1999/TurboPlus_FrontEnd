@@ -19,11 +19,9 @@ export class AllCarsComponent implements OnInit {
 
   protected readonly apiBaseUrl = apiBaseUrl;
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loading = true;
-    this.carService.getCars().subscribe(cars => {
-      this.cars = cars;
-    });
+    this.cars=await this.carService.getCars();
     this.loading = false;
   }
 }

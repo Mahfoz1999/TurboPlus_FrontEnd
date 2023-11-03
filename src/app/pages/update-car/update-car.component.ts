@@ -58,20 +58,17 @@ export class UpdateCarComponent implements OnInit{
         this.carService.UpdateCar(carFormData);
       }
     }
-    ngOnInit() {
-      this.route.queryParams.subscribe(params => {
+    
+   async ngOnInit() {
+      this.route.queryParams.subscribe(async params => {
         const carId = params['carId'];
         if (carId) {
-          this.loadCarDetails(carId);
+         await this.loadCarDetails(carId);
         }
       });
-      this.brandService.getBrands().subscribe(data => {
-        this.brands = data;
-      });
+      this.brands=await this.brandService.getBrands();
     }
-    loadCarDetails(carId: string) {
-      this.carService.getCar(carId).subscribe((car: CarInfo) => {
-        this.car = car;
-      });
+    async loadCarDetails(carId: string) {
+      this.car=await this.carService.getCar(carId);
     }
 }

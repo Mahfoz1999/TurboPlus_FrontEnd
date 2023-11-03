@@ -14,9 +14,10 @@
     <h2 class="text-3xl font-semibold mb-4">{{translate.instant('Why Choose Us') }}</h2>
     <article class="text-lg text-gray-700">{{translate.instant('text4') }}</article>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-13 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
-      <app-tip [boldText]="translate.instant('Variety of Cars') " num="01" [body]="translate.instant('tip1')"></app-tip>
-      <app-tip [boldText]="translate.instant('Competitive Pricing')" num="02" [body]="translate.instant('tip1')"></app-tip>
-      <app-tip [boldText]="translate.instant('24/7')" num="03" [body]="translate.instant('tip1')"></app-tip>
+      <app-tip [boldText]="translate.instant('Variety of Cars') " [Text]="translate.instant('tip1')" num="01" svg="assets/svg/cars-6.svg"></app-tip>
+    <app-tip [boldText]="translate.instant('Competitive Pricing')" num="02"
+    [Text]="translate.instant('tip2')" svg="assets/svg/money.svg"></app-tip>
+    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" num="03" svg="assets/svg/support.svg"></app-tip>
     </div>
   </div>
 </div>
@@ -27,7 +28,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:pt-13 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
       <div class="bg-white border-2 border-gray-500 p-6 rounded-lg">
         <h3 class="text-xl font-semibold">{{translate.instant('Email Us') }}</h3>
-        <p class="text-lg text-black">info@luxurycarrental.com</p>
+        <p class="text-lg text-black">info@luxurycarrent.ae</p>
       </div>
       <div class="bg-white border-2 border-gray-500 p-6 rounded-lg">
         <h3 class="text-xl font-semibold">{{translate.instant('Call Us') }}</h3>

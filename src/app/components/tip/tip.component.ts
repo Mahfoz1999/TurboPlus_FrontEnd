@@ -7,7 +7,8 @@ import {Component, Input} from '@angular/core';
 })
 export class TipComponent {
   @Input() boldText?: string ;
-  @Input() body?: string ;
+  @Input() Text?: string ;
+  @Input() svg?: string ;
   @Input() num?: string;
 
 

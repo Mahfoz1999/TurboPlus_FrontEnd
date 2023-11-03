@@ -15,10 +15,10 @@
   </section>
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
-    <app-tip [boldText]="translate.instant('Variety of Cars') " num="01" [body]="translate.instant('tip1')"></app-tip>
+    <app-tip [boldText]="translate.instant('Variety of Cars') " [Text]="translate.instant('tip1')" num="01" svg="assets/svg/cars-6.svg"></app-tip>
     <app-tip [boldText]="translate.instant('Competitive Pricing')" num="02"
-             [body]="translate.instant('tip1')"></app-tip>
-    <app-tip [boldText]="translate.instant('24/7')" num="03" [body]="translate.instant('tip1')"></app-tip>
+    [Text]="translate.instant('tip2')"         svg="assets/svg/money.svg"></app-tip>
+    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" num="03" svg="assets/svg/support.svg"></app-tip>
   </section>
 
 

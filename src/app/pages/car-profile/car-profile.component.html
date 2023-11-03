@@ -1,6 +1,4 @@
-<head>
-  <title>تأجير سيارات فاخرة في دبي - {{ car?.brandName + " " + car?.name + " " + car?.year }}</title>
-</head>
+
 
 <app-navbar></app-navbar>
 <ng-container *ngIf="!loading">
@@ -8,6 +6,7 @@
     <div class="pt-6">
       <!-- Image gallery -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:px-36 md:px-24 gap-4">
+        <ng-container *ngIf="car!.images.length !=0">
         <div *ngFor="let image of car!.images" class="flex flex-wrap">
           <div (click)="viewImage(image)" class="hover:shadow-lg">
             <img
@@ -17,6 +16,7 @@
             />
           </div>
         </div>
+      </ng-container>
         <app-image-model [imageSrc]="selectedImage" *ngIf="showImage" (close)="closeImage()"></app-image-model>
       </div>
       <div
@@ -31,11 +31,9 @@
         <div class="mt-4 lg:row-span-3 lg:mt-0">
           <h2 class="sr-only text-black">Car information</h2>
           <p class="text-3xl tracking-tight text-gray-900">
-            {{ car?.price + " AED" }}
-          </p>
-          <!-- Add the mileage limit here -->
+            {{ car?.price + " AED per day" }}
+          </p>          
           <p class="text-sm text-gray-600">Mileage limit - 100 km for 1 day</p>
-          <!-- Add the free delivery here -->
           <div class="flex items-center mt-2">
             <svg
               class="h-5 w-5 text-green-500 mr-2"
@@ -57,13 +55,11 @@
           <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px;">
               <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
-              <app-date-picker id="start-date"
-                               (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
+              <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
             </div>
             <div style="margin-left: 10px;">
               <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
-              <app-date-picker id="end-date"
-                               (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
+              <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
             </div>
           </div>
           <button

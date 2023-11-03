@@ -27,7 +27,7 @@ import { DubaiSectionComponent } from './components/dubai-section/dubai-section.
 import { ReviewComponent } from './components/review/review.component';
 import { BrandComponent } from './pages/brand/brand.component';
 import { AddCarComponent } from './pages/add-car/add-car.component';
-import { DashbordComponent } from './pages/dashbord/dashbord.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UpdateCarComponent } from './pages/update-car/update-car.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ImageModelComponent } from './components/image-model/image-model.component';
@@ -53,7 +53,7 @@ import { AllCarsComponent } from './pages/all-cars/all-cars.component';
     ReviewComponent,
     BrandComponent,
     AddCarComponent,
-    DashbordComponent,
+    DashboardComponent,
     UpdateCarComponent,
     DatePickerComponent,
     ImageModelComponent,

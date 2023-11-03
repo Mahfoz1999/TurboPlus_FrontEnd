@@ -4,7 +4,6 @@ import {CarService} from "../../data/services/car-services/car.service";
 import {BrandService} from '../../data/services/brand-services/brand.service';
 import {ActivatedRoute} from '@angular/router';
 import {apiBaseUrl} from "../../data/api-config";
-import {initFlowbite} from "flowbite";
 import {BrandInfo} from '../../data/models/brandInfo.model';
 import {TranslateService} from "@ngx-translate/core";
 
@@ -28,7 +27,7 @@ export class CarProfileComponent implements OnInit {
   }
 
   scrollToTop() {
-    window.scrollTo(0, 0); // يقوم بالتمرير إلى الأعلى
+    window.scrollTo(0, 0);
   }
 
   whatsappNumber: string = '+971507232473';
@@ -38,12 +37,10 @@ export class CarProfileComponent implements OnInit {
     if (this.startDate != undefined && this.endDate != undefined) {
       const messageText: string = 'Hello there i want to book this car : ' + this.car?.brandName + ' ' + this.car?.name + ' ' + this.car?.year + " from start date : " + this.startDate + " to End Date : " + this.endDate;
       const whatsappLink = `https://wa.me/${this.whatsappNumber}?text=${messageText}`;
-      // قم بفتح الرابط في نافذة جديدة أو تبويب جديد
       window.open(whatsappLink, "_blank");
     } else {
       const messageText: string = 'Hello there i want to book this car : ' + this.car?.brandName + ' ' + this.car?.name + ' ' + this.car?.year;
       const whatsappLink = `https://wa.me/${this.whatsappNumber}?text=${messageText}`;
-      // قم بفتح الرابط في نافذة جديدة أو تبويب جديد
       window.open(whatsappLink, "_blank");
     }
   }
@@ -65,27 +62,16 @@ export class CarProfileComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.scrollToTop();
     this.loading = true;
-    initFlowbite();
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(async params => {
       const carId = params['carId'];
       if (carId) {
-        this.loadCarDetails(carId);
+        this.car=await this.carService.getCar(carId);
       }
     });
     this.loading = false;
-  }
-
-  loadCarDetails(carId: string) {
-    this.carService.getCar(carId).subscribe((car: CarInfo) => {
-      this.car = car;
-      this.brandService.getBrand(car.brandId).subscribe((brand: BrandInfo) => {
-        this.brand = brand;
-      });
-    });
-
   }
 
 

@@ -23,28 +23,19 @@ export class HomeComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/') {
-          // إذا كنت على صفحة البداية
           window.scrollTo(0, this.scrollPosition);
         } else {
-          // إذا كنت على صفحة أخرى
           this.scrollPosition = window.scrollY;
         }
       }
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loading=true;
-    this.brandService.getBrands().subscribe(brands => {
-      this.brands=brands;
-    })
-    this.carService.getLastFourCars().subscribe(cars => {
-      this.cars = cars;
-    });
-    this.carService.getRandomCar().subscribe(car => {
-      this.car = car;
-      this.loading=false
-    });
+    this.cars=await this.carService.getLastFourCars();
+    this.car=await this.carService.getRandomCar(); 
+    this.loading=false;
     setInterval(() => {
       this.currentBackgroundIndex = (this.currentBackgroundIndex + 1) % this.cars.length;
     }, 3000);

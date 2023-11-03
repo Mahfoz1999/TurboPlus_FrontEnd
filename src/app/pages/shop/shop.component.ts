@@ -21,16 +21,11 @@ export class ShopComponent implements OnInit{
 
     protected readonly apiBaseUrl = apiBaseUrl;
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loading = true;
-    this.brandService.getBrandsWithCars().subscribe(brands => {
-      this.brands=brands;
-    })
-    this.carService.getCars().subscribe(cars => {
-      this.cars = cars;
-      this.loading = false;
-    });
-
+    this.brands=await this.brandService.getBrandsWithCars();
+    this.cars=await this.carService.getCars();
+    this.loading = false;
   }
 
 

@@ -18,13 +18,11 @@ export class SearchResultsComponent implements OnInit {
   constructor(public translate: TranslateService, private carService: CarService, private route: ActivatedRoute, private router: Router) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.loading = true;
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(async params => {
       const query = params['query'];
-      this.carService.getCarsByQuery(query).subscribe(cars => {
-        this.cars = cars;
-      });
+      this.cars=await this.carService.getCarsByQuery(query);
     });
     this.loading = false;
   }

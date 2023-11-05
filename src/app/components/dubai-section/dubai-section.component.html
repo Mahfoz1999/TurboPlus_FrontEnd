@@ -1,29 +1,29 @@
 <div class="px-4 py-8 lg:px-16 sm:px-4">
   <img src="../../../assets/images/pexels-mo-ismail-3763190.jpg" alt="Dubai" class="object-cover w-full h-72 sm:h-96 rounded-lg shadow-lg">
   <div class="pt-6">
-    <h1 class="text-3xl md:text-4xl sm:text-2xl font-sans text-black text-center">{{translate.instant('Benefits')}}</h1>
-    <div class="mt-4 border-b border-gray-300 dark:border-gray-700">
+    <h1 class="text-4xl md:text-5xl sm:text-3xl font-sans text-black text-center mb-4">{{translate.instant('Benefits')}}</h1>
+    <div class="mt-4 border-b-2 border-gray-300 dark:border-gray-700">
       <ul class="flex justify-center" role="tablist">
         <li>
-          <button class="inline-block p-2 sm:p-3 md:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
+          <button class="inline-block p-3 sm:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
                   [class.active-tab]="selectedTabIndex === 0" (click)="selectTab(0)">
             {{translate.instant('Saving Time')}}
           </button>
         </li>
         <li>
-          <button class="inline-block p-2 sm:p-3 md:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
+          <button class="inline-block p-3 sm:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
                   [class.active-tab]="selectedTabIndex === 1" (click)="selectTab(1)">
             {{translate.instant('Low Crime Rate')}}
           </button>
         </li>
         <li>
-          <button class="inline-block p-2 sm:p-3 md:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
+          <button class="inline-block p-3 sm:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
                   [class.active-tab]="selectedTabIndex === 2" (click)="selectTab(2)">
             {{translate.instant('Car Park')}}
           </button>
         </li>
         <li>
-          <button class="inline-block p-2 sm:p-3 md:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
+          <button class="inline-block p-3 sm:p-4 border-b-2 rounded-t-lg focus:outline-none focus:border-b-4 focus:border-primary transition"
                   [class.active-tab]="selectedTabIndex === 3" (click)="selectTab(3)">
             {{translate.instant('Car Delivery')}}
           </button>
@@ -32,16 +32,16 @@
     </div>
     <div class="mt-4 sm:mt-6">
       <div [class.hidden]="selectedTabIndex !== 0">
-        <article class="text-sm sm:text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Saving Time1')}}</article>
+        <article class="text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Saving Time1')}}</article>
       </div>
       <div [class.hidden]="selectedTabIndex !== 1">
-        <article class="text-sm sm:text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Low Crime Rate1')}}</article>
+        <article class="text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Low Crime Rate1')}}</article>
       </div>
       <div [class.hidden]="selectedTabIndex !== 2">
-        <article class="text-sm sm:text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Car Park1')}}</article>
+        <article class="text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Car Park1')}}</article>
       </div>
       <div [class.hidden]="selectedTabIndex !== 3">
-        <article class="text-sm sm:text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Car Delivery1')}}</article>
+        <article class="text-lg text-gray-700 dark:text-gray-400 text-center">{{translate.instant('Car Delivery1')}}</article>
       </div>
     </div>
   </div>

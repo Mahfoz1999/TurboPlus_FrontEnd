@@ -8,8 +8,8 @@ import {HomeComponent} from './pages/home/home.component';
 import {TipComponent} from './components/tip/tip.component';
 import {NgOptimizedImage} from "@angular/common";
 import {CarSliderComponent} from './components/car-slider/car-slider.component';
-import {CardComponent} from './components/card/card.component';
 import {FooterComponent} from './components/footer/footer.component';
+import {CardComponent} from './components/card/card.component';
 import {ShopComponent} from './pages/shop/shop.component';
 import {CarProfileComponent} from './pages/car-profile/car-profile.component';
 import {FAQComponent} from './pages/faq/faq.component';
@@ -33,7 +33,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { ImageModelComponent } from './components/image-model/image-model.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './pages/login/login.component';
-import { AllCarsComponent } from './pages/all-cars/all-cars.component';
+import {AllCarsComponent}from './pages/all-cars/all-cars.component';
+import { ServiceCardComponent } from './components/service-card/service-card.component' ;
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { AllCarsComponent } from './pages/all-cars/all-cars.component';
     ImageModelComponent,
     LoginComponent,
     AllCarsComponent,
+    ServiceCardComponent,
   ],
     imports: [
         BrowserModule,

@@ -3,7 +3,7 @@ import {CarInfo} from "../../data/models/carInfo.model";
 import {CarService} from "../../data/services/car-services/car.service";
 import {BrandService} from '../../data/services/brand-services/brand.service';
 import {ActivatedRoute} from '@angular/router';
-import {apiBaseUrl} from "../../data/api-config";
+import {apiBaseUrl, whatsappNumber} from "../../data/api-config";
 import {BrandInfo} from '../../data/models/brandInfo.model';
 import {TranslateService} from "@ngx-translate/core";
 
@@ -30,17 +30,17 @@ export class CarProfileComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  whatsappNumber: string = '+971507232473';
+
 
 
   navigateToWhatsApp() {
     if (this.startDate != undefined && this.endDate != undefined) {
       const messageText: string = 'Hello there i want to book this car : ' + this.car?.brandName + ' ' + this.car?.name + ' ' + this.car?.year + " from start date : " + this.startDate + " to End Date : " + this.endDate;
-      const whatsappLink = `https://wa.me/${this.whatsappNumber}?text=${messageText}`;
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${messageText}`;
       window.open(whatsappLink, "_blank");
     } else {
       const messageText: string = 'Hello there i want to book this car : ' + this.car?.brandName + ' ' + this.car?.name + ' ' + this.car?.year;
-      const whatsappLink = `https://wa.me/${this.whatsappNumber}?text=${messageText}`;
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${messageText}`;
       window.open(whatsappLink, "_blank");
     }
   }

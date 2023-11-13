@@ -1,82 +1,70 @@
-<main *ngIf="!loading">
-  <section class="bg-cover bg-center h-screen relative object-fill"
-           [ngStyle]="{'background-image': 'url('+apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl+')' }">
+<main *ngIf="!loading" >
+  <!-- Top Section -->
+  <section  class="bg-cover bg-center h-screen relative object-fill" [ngStyle]="{'background-image': 'url(' + apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl + ')'}" >
     <app-navbar></app-navbar>
     <div class="md:pt-24 pt-12 pb-12 text-white m-4 md:m-16 font-roboto space-x-5 text-center">
-      <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('new in stock') }}</p>
-      <h1
-        class="text-4xl md:text-7xl  font-stencil text-white">{{translate.instant('Discover a New Level of Comfort') }}</h1>
+      <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('new in stock')}}</p>
+      <h1 class="text-4xl md:text-7xl font-stencil text-white">{{translate.instant('Discover a New Level of Comfort')}}</h1>
       <br>
-      <a [routerLink]="['/shop']"
-         class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More') }}</a>
-      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: cars[currentBackgroundIndex].id }"
-         class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + cars[currentBackgroundIndex].brandName + " " + cars[currentBackgroundIndex].name + " " + cars[currentBackgroundIndex].year.toString() }}</a>
+      <a [routerLink]="['/shop']" class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: cars[currentBackgroundIndex].id }" class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + cars[currentBackgroundIndex].brandName + " " + cars[currentBackgroundIndex].name + " " + cars[currentBackgroundIndex].year.toString()}}</a>
     </div>
   </section>
 
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
-    <app-tip [boldText]="translate.instant('Variety of Cars') " [Text]="translate.instant('tip1')" num="01" svg="assets/svg/cars-6.svg"></app-tip>
-    <app-tip [boldText]="translate.instant('Competitive Pricing')" num="02"
-    [Text]="translate.instant('tip2')"         svg="assets/svg/money.svg"></app-tip>
-    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" num="03" svg="assets/svg/support.svg"></app-tip>
+  <!-- Second Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4" >
+    <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'" svg="assets/svg/cars-6.svg" ></app-tip>
+    <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'" svg="assets/svg/money.svg" ></app-tip>
+    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'" svg="assets/svg/support.svg" ></app-tip>
   </section>
 
-
-
-  <section class="md:pl-10 md:pt-24 pt-12 ">
-    <div class="md:w-full  pb-10 ">
-      <p class="text-2xl font-normal text-black  "
-         [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('WE RECOMMEND')}}</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-black "
-          [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Featured Vehicles')}}</h1>
+  <!-- Third Section -->
+  <section class="md:pl-10 md:pt-24 pt-12" >
+    <div class="md:w-full pb-10">
+      <p class="text-2xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Featured Vehicles')}}</h1>
     </div>
     <app-car-slider></app-car-slider>
   </section>
 
+  <!-- Fourth Section -->
   <section class="pt-40">
     <app-news-letter></app-news-letter>
   </section>
 
-  <section class="md:pl-10 pt-12 md:pt-24">
+  <!-- Fifth Section -->
+  <section class="md:pl-10 pt-12 md:pt-24" >
     <div class="md:w-full pb-5 text-start">
-      <p class="text-2xl md:text-3xl font-normal text-black"
-         [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('WE RECOMMEND')}}</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-black"
-          [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Latest Vehicles')}}</h1>
+      <p class="text-2xl md:text-3xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Latest Vehicles')}}</h1>
     </div>
-    <!-- Use different grid-cols-* classes for different screen sizes -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 m-4">
       <div *ngFor="let car of cars">
-        <!-- Use relative units for image width and height -->
-        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl+car.imageUrl"
-                  [name]="car.brandName+' '+ car.name+' '+car.year" [price]="car.price.toString()+' AED'"></app-card>
+        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl + car.imageUrl" [name]="car.brandName + ' ' + car.name + ' ' + car.year" [price]="car.price.toString() + ' AED'"></app-card>
       </div>
     </div>
     <div class="flex flex-col md:flex-row justify-center items-center pt-4">
-      <a [routerLink]="['/shop']"
-         class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/shop']" class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
     </div>
   </section>
 
-
+  <!-- Dubai Section -->
   <app-dubai-section></app-dubai-section>
-  <section class="bg-cover mt-36 bg-center h-screen relative object-fill flex flex-col justify-center items-center"
-           [ngStyle]="{'background-image': 'url('+apiBaseUrl + car?.coverPhotoUrl+')' }">
-    <div class="md:pt-24 pt-12 pb-12 text-white  m-4 md:m-16 font-roboto space-x-5 text-center">
+
+  <!-- Car Of The Day Section -->
+  <section  class="bg-cover mt-36 bg-center h-screen relative object-fill flex flex-col justify-center items-center" [ngStyle]="{'background-image': 'url(' + apiBaseUrl + car?.coverPhotoUrl + ')'}">
+    <div class="md:pt-24 pt-12 pb-12 text-white m-4 md:m-16 font-roboto space-x-5 text-center">
       <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('Car Of The Day')}}</p>
-      <h1
-        class="text-4xl md:text-7xl  font-stencil text-white">{{car?.brandName + " " + car?.name + " " + car?.year }}</h1>
+      <h1 class="text-4xl md:text-7xl font-stencil text-white">{{car?.brandName + " " + car?.name + " " + car?.year}}</h1>
       <br>
-      <a [routerLink]="['/shop']"
-         class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More') }}</a>
-      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: car?.id }"
-         class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + car?.brandName + " " + car?.name + " " + car?.year }}</a>
+      <a [routerLink]="['/shop']" class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: car?.id }" class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + car?.brandName + " " + car?.name + " " + car?.year}}</a>
     </div>
   </section>
-  <br>
-  <br>
-  <br>
 
+  <br>
+  <br>
+  <br>
   <app-footer></app-footer>
 </main>
 <div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white opacity-80">

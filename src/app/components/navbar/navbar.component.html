@@ -2,46 +2,42 @@
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button -->
         <button type="button" (click)="toggleMobileMenu()"
                 class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-          <img class="w-[30px] h-[30px]" alt="menu" src="../../../assets/svg/menu.svg">
+          <img class="w-5 h-5" alt="menu" src="../../../assets/svg/menu.svg">
         </button>
       </div>
       <div class="flex flex-1 items-center justify-center pr-8 sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
+        <div class="flex-shrink-0 items-center">
           <a [routerLink]="['/']">
-            <img class="h-8 w-[180px]" src="../../../assets/svg/logo.svg"
-                 alt="TurboPlus"></a>
+            <img class="h-8 w-36" src="../../../assets/svg/logo.svg" alt="TurboPlus">
+          </a>
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"
-               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('home') }}</a>
+               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('home')}}</a>
             <a routerLink="/about-us" routerLinkActive="active-link"
-               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('about') }}</a>
+               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('about')}}</a>
             <a routerLink="/FAQ" routerLinkActive="active-link"
-               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('FAQ') }}</a>
+               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('FAQ')}}</a>
             <a routerLink="/shop" routerLinkActive="active-link"
-               class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('shop') }}</a>
+               class="text-gray-300 hover.bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">{{translate.instant('shop')}}</a>
           </div>
         </div>
       </div>
-
       <div class="relative hidden sm:block">
-        <input type="text"
-               [(ngModel)]="searchTerm"
+        <input type="text" [(ngModel)]="searchTerm"
                class="pl-10 pr-4 py-2 text-gray-900 w-80 rounded-md focus:outline-none focus:ring focus:ring-gray-400"
                placeholder="Search">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
           <img src="../../../assets/svg/search.svg" alt="search" class="h-5 w-5 text-gray-500">
         </div>
         <button type="submit" (click)="search()"
-                class="text-white absolute items-center right-2 bottom-1 top-1  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+                class="text-white absolute right-2 bottom-1 top-1  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
           Search
         </button>
       </div>
-
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <div class="relative">
           <label for="language" class="sr-only">Select Language</label>
@@ -62,38 +58,37 @@
       </div>
     </div>
   </div>
-
-  <!-- Mobile menu, show/hide based on menu state. -->
   <div class="sm:hidden" id="mobile-menu" [ngClass]="{'hidden': !isMobileMenuOpen}">
     <div class="space-y-1 px-2 pb-3 pt-2">
-        <label class="mb-2 text-sm font-medium  sr-only text-white">Search</label>
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                 fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
-          </div>
-          <input type="search"  [(ngModel)]="searchTerm"
-                 class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                 placeholder="Search..." required>
-          <button type="submit" (click)="search()"
-                  class="text-white absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
-            Search
-          </button>
+      <label class="mb-2 text-sm font-medium sr-only text-white">Search</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+               xmlns="http://www.w3.org/2000/svg"
+               fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
         </div>
+        <input type="search" [(ngModel)]="searchTerm"
+               class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+               placeholder="Search..." required>
+        <button type="submit" (click)="search()"
+                class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+          Search
+        </button>
+      </div>
       <a routerLink="/" [routerLinkActiveOptions]="{exact: true}"
          routerLinkActive="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-      >{{translate.instant('home') }}</a>
+      >{{translate.instant('home')}}</a>
       <a routerLink="/about-us"
          routerLinkActive="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('about') }}</a>
+         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('about')}}</a>
       <a routerLink="/FAQ" routerLinkActive="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('FAQ') }}</a>
+         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('FAQ')}}</a>
       <a routerLink="/shop" routerLinkActive="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-         class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('shop') }}</a>
+         class="text-gray-300 hover.bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">{{translate.instant('shop')}}</a>
     </div>
   </div>
 </nav>

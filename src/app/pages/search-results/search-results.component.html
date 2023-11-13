@@ -1,20 +1,19 @@
 <app-navbar></app-navbar>
 <ng-container *ngIf="!loading">
-<div class="md:pl-10 pt-12 md:pt-24 pb-12">
-  <div class="md:w-full pb-5 text-start">
-    <h1 class="text-4xl md:text-5xl font-bold  text-black"
-        [ngClass]="{'flex justify-end pr-12  text-right': translate.currentLang==='ar'}">{{translate.instant('search result')}}</h1>
-  </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    <div *ngFor="let car of cars">
-      <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl+car.imageUrl"
-                [name]="car.brandName+' '+ car.name+' '+car.year" [price]="car.price.toString()+' AED'"></app-card>
+  <div class="md:pl-10 pt-12 md:pt-24 pb-12">
+    <div class="md:w-full pb-5 text-start">
+      <h1 class="text-4xl md:text-5xl font-bold text-black"
+          [ngClass]="{'flex justify-end pr-12 text-right': translate.currentLang === 'ar'}">{{ translate.instant('search result') }}</h1>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div *ngFor="let car of cars">
+        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl + car.imageUrl"
+                  [name]="car.brandName + ' ' + car.name + ' ' + car.year" [price]="car.price.toString() + ' AED'"></app-card>
+      </div>
     </div>
   </div>
-</div>
-
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </ng-container>
-<div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white opacity-80">
-  <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+<div *ngIf="loading" class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
 </div>

@@ -7,11 +7,13 @@ import {CarInfo} from "../../data/models/carInfo.model";
 import { Router, NavigationEnd } from '@angular/router';
 import {Brand} from "../../data/models/brand.model";
 import {BrandService} from "../../data/services/brand-services/brand.service";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
+
 export class HomeComponent implements OnInit {
   private scrollPosition = 0;
   loading: boolean = true;

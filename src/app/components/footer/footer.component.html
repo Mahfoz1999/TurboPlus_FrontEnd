@@ -1,20 +1,20 @@
-<footer class="bg-gray-900">
-  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+<footer class="bg-gray-900 text-white py-8">
+  <div class="mx-auto max-w-screen-xl">
     <div class="md:flex md:justify-between">
       <div class="mb-6 md:mb-0">
         <a [routerLink]="['/']" class="flex items-center">
-          <img ngSrc="../../../assets/svg/logo.svg" class="h-8 w-1/2 mr-3" alt="TurboPlus Logo" height="18" width="219"/>
+          <img src="../../../assets/svg/logo.svg" alt="TurboPlus Logo" class="h-8 w-1/2 mr-3" height="18" width="219" />
         </a>
-        <h2 class="mb-2 text-sm font-semibold pt-6  uppercase text-white">{{translate.instant('Address') }}</h2>
+        <h2 class="mb-2 text-sm font-semibold pt-6 uppercase">{{translate.instant('Address') }}</h2>
         <a href="https://www.google.com/maps/place/Turbo+Plus+Rent+A+Car+-+Luxury+%26+Sport+Car+Rental+in+Dubai/@25.1252784,55.2061209,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6d3251cb4e45:0xf0c9a2c63e93d81a!8m2!3d25.1252736!4d55.203546!16s%2Fg%2F11n095c0c3?hl=ar&entry=ttu"
         class="text-gray-400 font-medium hover:underline" >معرض بنتلي Next Bentley Showroom - دبي - شارع الشيخ زايد - دبي</a>
-        <h2 class="mb-2 text-sm font-semibold pt-6  uppercase text-white">{{translate.instant('phone') }}</h2>
+        <h2 class="mb-2 text-sm font-semibold pt-6 uppercase">{{translate.instant('phone') }}</h2>
         <p class="text-gray-400 font-medium hover:underline">0566229782</p>
       </div>
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
         <div>
-          <h2 class="mb-6 text-sm font-semibold  uppercase text-white">{{translate.instant('Pages') }}</h2>
-          <ul class=" text-gray-400 font-medium">
+          <h2 class="mb-6 text-sm font-semibold uppercase">{{translate.instant('Pages') }}</h2>
+          <ul class="text-gray-400 font-medium">
             <li class="mb-4">
               <a [routerLink]="['/']" class="hover:underline">{{translate.instant('home') }}</a>
             </li>
@@ -30,8 +30,8 @@
           </ul>
         </div>
         <div>
-          <h2 class="mb-6 text-sm font-semibold  uppercase text-white">{{translate.instant('follow us') }}</h2>
-          <ul class=" text-gray-400 font-medium">
+          <h2 class="mb-6 text-sm font-semibold uppercase">{{translate.instant('follow us') }}</h2>
+          <ul class="text-gray-400 font-medium">
             <li class="mb-4">
               <a href="https://www.facebook.com/turboplus.ae" class="hover:underline ">Facebook</a>
             </li>
@@ -42,17 +42,16 @@
         </div>
       </div>
     </div>
-    <hr class="my-6  sm:mx-auto border-gray-700 lg:my-8"/>
+    <hr class="my-6 border-gray-700"/>
     <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm  sm:text-center text-gray-400">© 2023 <a [routerLink]="['/']" class="hover:underline">TurboPlus™</a>. All Rights Reserved.
-          </span>
+      <span class="text-sm text-center">© 2023 <a [routerLink]="['/']" class="hover:underline">TurboPlus™</a>. All Rights Reserved.</span>
       <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-        <a href="https://www.facebook.com/turboplus.ae" class="text-gray-500  hover:text-white">
-          <img class="w-5 h-5" ngSrc="../../../assets/svg/face.svg" height="50" width="50">
+        <a href="https://www.facebook.com/turboplus.ae" class="text-gray-500 hover:text-white hover:scale-110 transition-transform">
+          <img src="../../../assets/svg/face.svg" alt="Facebook page" class="w-5 h-5" height="50" width="50">
           <span class="sr-only">Facebook page</span>
         </a>
-        <a href="https://www.instagram.com/turboplus.ae" class="text-gray-500  hover:text-white">
-          <img class="w-5 h-5" ngSrc="../../../assets/svg/insta.svg" height="50" width="50">
+        <a href="https://www.instagram.com/turboplus.ae" class="text-gray-500 hover:text-white hover:scale-110 transition-transform">
+          <img src="../../../assets/svg/insta.svg" alt="Instagram Page" class="w-5 h-5" height="50" width="50">
           <span class="sr-only">Instagram Page</span>
         </a>
       </div>

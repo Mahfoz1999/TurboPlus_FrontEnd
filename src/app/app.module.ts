@@ -35,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './pages/login/login.component';
 import {AllCarsComponent}from './pages/all-cars/all-cars.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component' ;
+
 @NgModule({
   declarations: [
     AppComponent,

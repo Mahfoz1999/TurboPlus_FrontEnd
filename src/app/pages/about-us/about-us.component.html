@@ -1,52 +1,47 @@
 <main>
-  <div class="relative h-screen" [style.background-image]="'url(assets/images/pexels-prime-cinematics-2036544.jpg )'">
+  <div class="relative h-screen" [style.background-image]="'url(assets/images/pexels-prime-cinematics-2036544.jpg)'">
     <app-navbar></app-navbar>
     <div class="text-white text-center m-16 font-roboto space-x-5">
-      <h1 class="text-4xl md:text-7xl  font-stencil text-white">{{translate.instant('about') }}</h1>
-      <article class="text-2xl md:text-3xl font-extrabold pt-6 text-gray-200">{{translate.instant('text3') }}</article>
+      <h1 class="text-4xl md:text-7xl font-stencil text-white">{{translate.instant('about')}}</h1>
+      <article class="text-2xl md:text-3xl font-extrabold pt-6 text-gray-200">{{translate.instant('text3')}}</article>
     </div>
   </div>
 
   <section class="bg-gray-100 py-12">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-extrabold text-black mb-6">{{translate.instant('Why Choose Us') }}</h2>
-      <p class="text-lg text-gray-700 leading-7">{{translate.instant('text4') }}</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-13 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
-        <app-tip [boldText]="translate.instant('Variety of Cars') " [Text]="translate.instant('tip1')" num="01"
-                 svg="assets/svg/cars-6.svg"></app-tip>
-        <app-tip [boldText]="translate.instant('Competitive Pricing')" num="02"
-                 [Text]="translate.instant('tip2')" svg="assets/svg/money.svg"></app-tip>
-        <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" num="03"
-                 svg="assets/svg/support.svg"></app-tip>
-      </div>
+      <h2 class="text-4xl font-extrabold text-black mb-6">{{translate.instant('Why Choose Us')}}</h2>
+      <p class="text-lg text-gray-700 leading-7">{{translate.instant('text4')}}</p>
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
+        <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'" svg="assets/svg/cars-6.svg"></app-tip>
+        <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'" svg="assets/svg/money.svg"></app-tip>
+        <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'" svg="assets/svg/support.svg"></app-tip>
+      </section>
     </div>
   </section>
 
   <section class="md:pl-10 md:pt-24 pt-12">
-    <div class="md:w-full  pb-10">
-      <h1 class="text-4xl md:text-6xl font-bold text-black"
-          [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Service')}}</h1>
-      <p class="text-2xl font-normal text-black"
-         [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Service1')}}</p>
+    <div class="md:w-full pb-10">
+      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Service')}}</h1>
+      <p class="text-2xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Service1')}}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:pt-8 pt-6 md:px-6 px-4">
-      <app-service-card image="assets/images/Airport.jpg" [title]="translate.instant('Airport')" [body]="translate.instant('Airport1')" ></app-service-card>
-      <app-service-card image="assets/images/Shufir.jpg" [title]="translate.instant('Chauffeur')" [body]="translate.instant('Chauffeur1')" ></app-service-card>
-      <app-service-card image="assets/images/event.jpg" [title]="translate.instant('Events')" [body]="translate.instant('Events1')" ></app-service-card>
+      <app-service-card image="assets/images/Airport.jpg" [title]="translate.instant('Airport')" [body]="translate.instant('Airport1')"></app-service-card>
+      <app-service-card image="assets/images/Shufir.jpg" [title]="translate.instant('Chauffeur')" [body]="translate.instant('Chauffeur1')"></app-service-card>
+      <app-service-card image="assets/images/event.jpg" [title]="translate.instant('Events')" [body]="translate.instant('Events1')"></app-service-card>
     </div>
   </section>
 
   <section class="bg-gray-100 mt-12 mx-8 py-12">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-extrabold text-black mb-6">{{ translate.instant('Contact with Us') }}</h2>
-      <p class="text-lg text-gray-700 leading-7 mb-8">{{ translate.instant('text5') }}</p>
+      <h2 class="text-4xl font-extrabold text-black mb-6">{{translate.instant('Contact with Us')}}</h2>
+      <p class="text-lg text-gray-700 leading-7 mb-8">{{translate.instant('text5')}}</p>
       <div class="grid grid-cols-1 mx-8 md:grid-cols-2 gap-8">
         <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
-          <h3 class="text-2xl font-semibold text-black mb-4">{{ translate.instant('Email Us') }}</h3>
+          <h3 class="text-2xl font-semibold text-black mb-4">{{translate.instant('Email Us')}}</h3>
           <p class="text-lg text-gray-600">info@luxurycarrent.ae</p>
         </div>
         <div class="bg-white border border-gray-300 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
-          <h3 class="text-2xl font-semibold text-black mb-4">{{ translate.instant('Call Us') }}</h3>
+          <h3 class="text-2xl font-semibold text-black mb-4">{{translate.instant('Call Us')}}</h3>
           <p class="text-lg text-gray-600">+971 566 229 782</p>
         </div>
       </div>

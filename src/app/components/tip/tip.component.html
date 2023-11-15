@@ -1,12 +1,13 @@
-<div class="">
-  <div class="flex pb-4 items-center">
-    <p class="pr-2 text-sm font-roboto">{{num}}</p>
-    <div class="bg-gray-500 divide-x divide-x-solid h-0.5 w-full"></div>
-
+<div class="flex flex-col items-center w-full">
+  <div class="flex items-center w-full">
+    <p class="pr-2 text-sm font-roboto ">{{num}}</p>
+    <hr class="flex-grow border-gray-500">
   </div>
-<div class="w-1/1 h-1/2 border-2 border-gray-500 flex flex-col justify-center items-center ">
-  <img class="pt-2 w-10 h-10" [src]="svg">
-  <p class="font-bold text-2xl pt-3 text-center">{{boldText}}</p>
-  <p class="font-roboto text-lg pt-1.5 pb-2 pl-10 pr-10 text-center">{{Text}}</p>
-</div>
+  <section class="w-full h-[360px] border-2 border-gray-500 flex flex-col justify-center items-center p-4">
+    <figure class="pt-2 w-10 h-10">
+      <img src="{{svg}}" alt="{{boldText}}">
+    </figure>
+    <h2 class="font-bold text-3xl pt-3 text-center">{{boldText}}</h2>
+    <p class="font-roboto text-[20px] pt-1.5 pb-2 pl-10 pr-10 text-center">{{Text}}</p>
+  </section>
 </div>

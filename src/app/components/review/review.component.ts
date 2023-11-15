@@ -1,58 +1,61 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
+
+interface Testimonial {
+  name: string;
+  car: string;
+  quote: string;
+  image: string;
+  position: string; // Added position field
+}
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
-export class ReviewComponent implements OnInit{
-  ratings = [
+export class ReviewComponent {
+  testimonials: Testimonial[] = [
     {
-      id: 1,
-      value: 5,
-      stars: [1, 1, 1, 1, 1],
-      review: "I liked the functionality and comfort of the car. Special thanks to the professionally provided support service. I will apply again.",
-      reviewer: "Kate Peterson",
-      product: "Range Rover"
+      name:'Karen Nelson',
+      car: 'Mercedes S-Class',
+      quote: 'I recently rented the luxurious Mercedes S-Class from Turbo Plus, and I\'m speechless about the seamless experience. The service was easy, efficient, and the car was in excellent condition.',
+      image: 'assets/images/Karen Nelson.jpg',
+      position: 'Marketing Director'
     },
     {
-      id: 2,
-      value: 4,
-      stars: [1, 1, 1, 1, 0],
-      review: "The car is very spacious and comfortable. The engine is powerful and smooth. The only drawback is the high fuel consumption.",
-      reviewer: "John Smith",
-      product: "Range Rover"
+      name:'Roberta Casas',
+      car: 'BMW 7 Series',
+      quote: 'I had an unforgettable experience renting the BMW 7 Series from Turbo Plus. Everything was perfect, from the high-quality service to the performance of the car.',
+      image: 'assets/images/Roberta Casas.jpg',
+      position: 'Product Manager'
     },
     {
-      id: 3,
-      value: 3,
-      stars: [1, 1, 1, 0, 0],
-      review: "The car is good for long trips, but not very practical for city driving. The navigation system is outdated and sometimes inaccurate.",
-      reviewer: "Mary Jones",
-      product: "Range Rover"
+      name:'Jese Leos',
+      car: 'Audi A8',
+      quote: 'My rental of the Audi A8 from Turbo Plus was filled with luxury and elegance. The car was in excellent condition, and the service was top-notch.',
+      image: 'assets/images/Jese Leos.jpg',
+      position: 'Tech Lead'
+    },
+    {
+      name:'Alex Jones',
+      car: 'Tesla Model S',
+      quote: 'I rented the Tesla Model S from Turbo Plus, and the experience was outstanding. The car delivered a smooth ride, and the rental process was hassle-free.',
+      image: 'assets/images/Alex Jones.jpg',
+      position: 'UX Designer'
+    },
+    {
+      name:'Lisa Jackson',
+      car: 'Porsche 911',
+      quote: 'Renting the Porsche 911 from Turbo Plus was a thrilling experience. The car\'s performance was exceptional, and the staff provided excellent service.',
+      image: 'assets/images/Lisa Jackson.jpg',
+      position: 'Operations Manager'
+    },
+    {
+      name:'Michael Smith',
+      car: 'Jaguar F-Type',
+      quote: 'My experience with Turbo Plus and their Jaguar F-Type was fantastic. The customer service was exceptional, and the car was a joy to drive.',
+      image: 'assets/images/Michael Smith.jpg',
+      position: 'Finance Analyst'
     }
   ];
-
-  // Define variables for the current rating, review, reviewer and product
-  currentRating = 1;
-  currentReview = this.ratings[0].review;
-  currentReviewer = this.ratings[0].reviewer;
-  currentProduct = this.ratings[0].product;
-
-  // Define a constructor
-  constructor() { }
-
-  ngOnInit(): void {
-    setInterval(() => {
-      this.currentRating++;
-      if (this.currentRating > this.ratings.length) {
-        this.currentRating = 1;
-      }
-      let rating = this.ratings.find(r => r.id === this.currentRating);
-      this.currentReview = rating!.review;
-      this.currentReviewer = rating!.reviewer;
-      this.currentProduct = rating!.product;
-    }, 5000);
-  }
 }
-

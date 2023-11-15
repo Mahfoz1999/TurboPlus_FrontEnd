@@ -29,7 +29,15 @@ export class CarProfileComponent implements OnInit {
   scrollToTop() {
     window.scrollTo(0, 0);
   }
+  currentImageIndex = 0;
 
+  nextImage() {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.car!.images!.length;
+  }
+
+  previousImage() {
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.car!.images!.length) % this.car!.images!.length;
+  }
 
 
 

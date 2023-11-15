@@ -34,7 +34,8 @@ import { ImageModelComponent } from './components/image-model/image-model.compon
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './pages/login/login.component';
 import {AllCarsComponent}from './pages/all-cars/all-cars.component';
-import { ServiceCardComponent } from './components/service-card/service-card.component' ;
+import { ServiceCardComponent } from './components/service-card/service-card.component';
+import { CarouselComponent } from './carousel/carousel.component' ;
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
     LoginComponent,
     AllCarsComponent,
     ServiceCardComponent,
+    CarouselComponent,
   ],
     imports: [
         BrowserModule,

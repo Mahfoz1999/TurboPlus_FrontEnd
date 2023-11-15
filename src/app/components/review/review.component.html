@@ -1,23 +1,24 @@
-<div class="md:w-full pb-12 text-center pt-16">
-  <h1 class="text-4xl md:text-6xl font-bold text-black mb-8">Customer Reviews</h1>
-  <figure class="max-w-screen-md mx-auto" data-carousel-item>
-    <div class="flex flex-row items-center justify-center mb-6 text-yellow-300">
-      <div *ngFor="let rating of ratings">
-        <div *ngIf="rating.id === currentRating" class="flex items-center">
-          <div *ngFor="let star of rating.stars; let i = index">
-            <img src="../../../assets/svg/star.svg" alt="star" class="w-7 h-7 mr-1 transition-transform transform hover:scale-125"
-                 [ngClass]="{'opacity-50': star === 0, 'animate-pulse': i === 0}">
+<section class="bg-white ">
+    <article class="py-12 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-8">
+      <header class="mb-8 max-w-screen-sm mx-auto">
+        <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 ">Customer Testimonials</h2>
+        <p class="mt-4 text-gray-600 ">See what our customers are saying about their experience renting luxury cars from Turbo Plus.</p>
+      </header>
+      <div class="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+        <div *ngFor="let testimonial of testimonials" class="bg-gray-50  border border-gray-200  p-8 md:p-10 lg:p-12">
+          <blockquote class="mb-6 max-w-2xl mx-auto text-gray-700 ">
+            <h3 class="text-xl font-semibold text-gray-900 ">{{ testimonial.car }}</h3>
+            <p class="mt-2">{{ testimonial.quote }}</p>
+          </blockquote>
+          <div class="flex items-center space-x-4">
+            <img class="w-14 h-14 rounded-full object-cover" [src]="testimonial.image" [alt]="testimonial.name">
+            <div>
+              <div class="text-lg font-semibold text-gray-900 ">{{ testimonial.name }}</div>
+              <div class="text-gray-600 ">{{ testimonial.position }}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <blockquote class="text-xl font-semibold text-gray-900 dark:text-white">
-      <p>{{ currentReview }}</p>
-    </blockquote>
-    <figcaption class="flex items-center mt-8 space-x-3 text-gray-700 dark:text-gray-400">
-      <cite class="font-medium">{{ currentReviewer }}</cite>
-      <span class="text-sm">&bull;</span>
-      <span class="text-sm">{{ currentProduct }}</span>
-    </figcaption>
-  </figure>
-</div>
+    </article>
+  </section>
+  

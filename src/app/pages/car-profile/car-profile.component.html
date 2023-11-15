@@ -1,74 +1,74 @@
-<app-navbar></app-navbar>
-<ng-container *ngIf="!loading">
-  <div class="bg-white">
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+<main *ngIf="!loading">
+  <section class="bg-white">
     <div class="pt-6">
       <!-- Image gallery -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        <ng-container *ngIf="car!.images.length !== 0">
-          <div *ngFor="let image of car!.images" class="cursor-pointer hover:shadow-lg">
-            <img
-              class="w-full h-72 sm:h-96 rounded-lg object-cover"
-              [src]="apiBaseUrl + image"
-              [alt]="car?.name"
-              (click)="viewImage(image)"
-            />
-          </div>
-        </ng-container>
-        <app-image-model [imageSrc]="selectedImage" *ngIf="showImage" (close)="closeImage()"></app-image-model>
+      <div class="relative flex items-center justify-center">
+        <img [src]="apiBaseUrl + car!.images![currentImageIndex]" alt="{{ car?.brandName }} {{ car?.name }} {{ car?.year }}" class="w-[900px] h-[500px] object-cover">
+        <div class="absolute inset-0 flex items-center justify-between">
+          <button (click)="previousImage()" [disabled]="currentImageIndex === 0" class="btn-navigation left-0 bg-gray-800 text-white px-4 py-2 rounded-l-md" aria-label="Previous Image">
+            Prev
+          </button>
+          <button (click)="nextImage()" [disabled]="currentImageIndex === car!.images!.length - 1" class="btn-navigation right-0 bg-gray-800 text-white px-4 py-2 rounded-r-md" aria-label="Next Image">
+            Next
+          </button>
+        </div>
       </div>
-      <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+      
+
+      <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-1 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+        <div class="mt-4 lg:row-span-3 lg:mt-0">
           <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {{ car?.brandName + " " + car?.name + " " + car?.year }}
           </h1>
           <h2 class="text-xl font-serif tracking-tight text-gray-500 sm:text-xl">Dubai-UAE</h2>
-        </div>
-        <div class="mt-4 lg:row-span-3 lg:mt-0">
+
           <h2 class="sr-only text-black">Car information</h2>
           <p class="text-3xl tracking-tight text-gray-900">
             {{ car?.price + " AED per day" }}
           </p>
-          <p class="text-sm text-gray-600">Mileage limit - 100 km for 1 day</p>
           <div class="flex items-center mt-2 space-x-4">
-            <svg
-              class="h-5 w-5 text-green-500"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+            <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
             <span class="text-green-500 font-bold">Free delivery within 20 minutes</span>
           </div>
+          
           <div class="mt-4 flex items-center space-x-4">
             <div>
               <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
-              <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)"></app-date-picker>
+              <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)" aria-labelledby="start-date"></app-date-picker>
             </div>
             <div>
               <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
-              <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)"></app-date-picker>
+              <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)" aria-labelledby="end-date"></app-date-picker>
             </div>
           </div>
+
           <button
             (click)="navigateToWhatsApp()"
             type="submit"
-            class="mt-6 w-full px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            Get It Now
+            class="mt-6 w-1/2 px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Book Now
           </button>
         </div>
-        <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+
+        <div class="py-10 lg:col-span-1 lg:pb-16 lg:pr-8 lg:pt-6">
           <h3 class="text-2xl font-semibold text-gray-900">Description</h3>
           <article class="space-y-4 text-base text-gray-700">{{ car?.description }}</article>
         </div>
       </div>
     </div>
-  </div>
-  <app-footer></app-footer>
-</ng-container>
+  </section>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</main>
+
 <div *ngIf="loading" class="fixed inset-0 flex items-center justify-center bg-white opacity-80">
   <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
 </div>

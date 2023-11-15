@@ -7,18 +7,18 @@
     </div>
   </div>
 
-  <section class="bg-gray-100 py-12">
-    <div class="container mx-auto text-center">
+  
+    <div class="container mx-auto pt-12 text-center">
       <h2 class="text-4xl font-extrabold text-black mb-6">{{translate.instant('Why Choose Us')}}</h2>
       <p class="text-lg text-gray-700 leading-7">{{translate.instant('text4')}}</p>
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
-        <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'" svg="assets/svg/cars-6.svg"></app-tip>
-        <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'" svg="assets/svg/money.svg"></app-tip>
-        <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'" svg="assets/svg/support.svg"></app-tip>
-      </section>
+      
     </div>
+  
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4" >
+    <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'" svg="assets/svg/cars-6.svg" ></app-tip>
+    <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'" svg="assets/svg/money.svg" ></app-tip>
+    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'" svg="assets/svg/support.svg" ></app-tip>
   </section>
-
   <section class="md:pl-10 md:pt-24 pt-12">
     <div class="md:w-full pb-10">
       <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang==='ar'}">{{translate.instant('Service')}}</h1>

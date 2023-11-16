@@ -5,6 +5,7 @@ import {CarService} from "../../data/services/car-services/car.service";
 import {Car} from "../../data/models/car.model";
 import {BrandService} from "../../data/services/brand-services/brand.service";
 import {BrandInfo} from "../../data/models/brandInfo.model";
+import { Brand } from 'src/app/data/models/brand.model';
 
 @Component({
   selector: 'app-shop',
@@ -14,6 +15,7 @@ import {BrandInfo} from "../../data/models/brandInfo.model";
 export class ShopComponent implements OnInit{
   loading: boolean = true;
   cars: Car[] = [];
+  brandsLogo:Brand[]=[];
   brands:BrandInfo[] =[];
   Image1:string='assets/images/pexels-mike-bird-120049.jpg';
   constructor(public translate: TranslateService,private carService: CarService,private  brandService: BrandService) {
@@ -23,6 +25,7 @@ export class ShopComponent implements OnInit{
 
   async ngOnInit() {
     this.loading = true;
+    this.brandsLogo=await this.brandService.getBrands();
     this.brands=await this.brandService.getBrandsWithCars();
     this.cars=await this.carService.getCars();
     this.loading = false;

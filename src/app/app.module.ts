@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HomeComponent} from './pages/home/home.component';
 import {TipComponent} from './components/tip/tip.component';
 import {NgOptimizedImage} from "@angular/common";
@@ -31,11 +30,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UpdateCarComponent } from './pages/update-car/update-car.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ImageModelComponent } from './components/image-model/image-model.component';
-import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './pages/login/login.component';
 import {AllCarsComponent}from './pages/all-cars/all-cars.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
-import { CarouselComponent } from './carousel/carousel.component' ;
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { BrandCardComponent } from './components/brand-card/brand-card.component' ;
 
 @NgModule({
   declarations: [
@@ -64,11 +63,11 @@ import { CarouselComponent } from './carousel/carousel.component' ;
     AllCarsComponent,
     ServiceCardComponent,
     CarouselComponent,
+    BrandCardComponent,
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FontAwesomeModule,
         RouterModule,
         NgOptimizedImage,
         HttpClientModule,
@@ -81,7 +80,6 @@ import { CarouselComponent } from './carousel/carousel.component' ;
         }),
         BrowserAnimationsModule,
         FormsModule,
-        ToastrModule.forRoot()
     ],
   providers: [],
   bootstrap: [AppComponent]

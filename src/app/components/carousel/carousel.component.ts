@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { apiBaseUrl } from '../data/api-config';
+import { apiBaseUrl } from '../../data/api-config';
 
 @Component({
   selector: 'app-carousel',

@@ -34,7 +34,7 @@ export class CarSliderComponent implements  AfterViewInit {
       const currentIndex = this.swiper!.activeIndex;
       const nextIndex = (currentIndex + 1) % this.cars.length;
       this.swiper!.slideTo(nextIndex);
-    }, 10000);
+    }, 3000);
   }
 
   protected readonly apiBaseUrl = apiBaseUrl;

@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
     this.loading=true;
     this.cars=await this.carService.getLastFourCars();
     this.car=await this.carService.getRandomCar(); 
+    this.brands=await this.brandService.getBrands();
     this.loading=false;
     setInterval(() => {
       this.currentBackgroundIndex = (this.currentBackgroundIndex + 1) % this.cars.length;

@@ -1,10 +1,16 @@
-<div class="relative">
-  <img [src]="apiBaseUrl+images![currentImageIndex]" alt="Image" class="w-full h-60 object-cover">
+<div class="relative h-60">
+  <img [src]="apiBaseUrl + images![currentImageIndex]" alt="Image" class="w-full h-full object-cover">
   <div class="absolute inset-0 flex items-center justify-between">
-    <button (click)="previousImage()" [disabled]="currentImageIndex === 0" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-l" aria-label="Previous Image">
+    <button
+      (click)="previousImage()"
+      [disabled]="currentImageIndex === 0"
+      class="button-nav rounded-l">
       Prev
     </button>
-    <button (click)="nextImage()" [disabled]="currentImageIndex === images!.length - 1" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-r" aria-label="Next Image">
+    <button
+      (click)="nextImage()"
+      [disabled]="currentImageIndex === images!.length - 1"
+      class="button-nav rounded-r">
       Next
     </button>
   </div>

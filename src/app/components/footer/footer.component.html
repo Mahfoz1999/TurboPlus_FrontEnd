@@ -1,58 +1,71 @@
-<footer class="bg-gray-900 text-white py-8">
-  <div class="mx-auto max-w-screen-xl">
-    <div class="md:flex md:justify-between">
-      <div class="mb-6 md:mb-0">
-        <a [routerLink]="['/']" class="flex items-center">
+<footer class="bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-200 py-8">
+  <div class="container mx-auto px-4 md:px-8">
+    <!-- Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Logo and Contact Information -->
+      <div class="mb-8 md:mb-0 md:col-span-1">
+        <a href="/" class="flex items-center mb-4">
           <img src="../../../assets/svg/logo.svg" alt="TurboPlus Logo" class="h-8 w-1/2 mr-3" height="18" width="219" />
         </a>
-        <h2 class="mb-2 text-sm font-semibold pt-6 uppercase">{{translate.instant('Address') }}</h2>
-        <a href="https://www.google.com/maps/place/Turbo+Plus+Rent+A+Car+-+Luxury+%26+Sport+Car+Rental+in+Dubai/@25.1252784,55.2061209,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6d3251cb4e45:0xf0c9a2c63e93d81a!8m2!3d25.1252736!4d55.203546!16s%2Fg%2F11n095c0c3?hl=ar&entry=ttu"
-        class="text-gray-400 font-medium hover:underline" >معرض بنتلي Next Bentley Showroom - دبي - شارع الشيخ زايد - دبي</a>
-        <h2 class="mb-2 text-sm font-semibold pt-6 uppercase">{{translate.instant('phone') }}</h2>
-        <p class="text-gray-400 font-medium hover:underline">0566229782</p>
+        <div class="mb-4">
+          <h2 class="text-sm font-semibold uppercase mb-2">{{ translate.instant('Address') }}</h2>
+          <p class="text-gray-400 dark:text-gray-300 font-medium">
+            <a href="https://www.google.com/maps/place/Turbo+Plus+Rent+A+Car±+Luxury+%26+Sport+Car+Rental+in+Dubai/@25.1252784,55.2061209,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6d3251cb4e45:0xf0c9a2c63e93d81a!8m2!3d25.1252736!4d55.203546!16s%2Fg%2F11n095c0c3?hl=ar&entry=ttu"
+               class="hover:underline">
+              معرض بنتلي Next Bentley Showroom - دبي - شارع الشيخ زايد - دبي
+            </a>
+          </p>
+        </div>
+        <div>
+          <h2 class="text-sm font-semibold uppercase mb-2">{{ translate.instant('phone') }}</h2>
+          <p class="text-gray-400 dark:text-gray-300 font-medium hover:underline">056 622 9782</p>
+        </div>
       </div>
-      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-        <div>
-          <h2 class="mb-6 text-sm font-semibold uppercase">{{translate.instant('Pages') }}</h2>
-          <ul class="text-gray-400 font-medium">
-            <li class="mb-4">
-              <a [routerLink]="['/']" class="hover:underline">{{translate.instant('home') }}</a>
-            </li>
-            <li class="mb-4">
-              <a [routerLink]="['/about-us']" class="hover:underline">{{translate.instant('about') }}</a>
-            </li>
-            <li class="mb-4">
-              <a [routerLink]="['/FAQ']" class="hover:underline">{{translate.instant('FAQ') }}</a>
-            </li>
-            <li class="mb-4">
-              <a [routerLink]="['/shop']" class="hover:underline">{{translate.instant('shop') }}</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold uppercase">{{translate.instant('follow us') }}</h2>
-          <ul class="text-gray-400 font-medium">
-            <li class="mb-4">
-              <a href="https://www.facebook.com/turboplus.ae" class="hover:underline ">Facebook</a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/turboplus.ae" class="hover:underline">Instagram</a>
-            </li>
-          </ul>
-        </div>
+
+      <!-- Pages Links -->
+      <div class="mb-8 md:mb-0">
+        <h2 class="text-sm font-semibold uppercase mb-4">{{ translate.instant('Pages') }}</h2>
+        <ul class="text-gray-400 dark:text-gray-300 font-medium space-y-2">
+          <li>
+            <a href="/" class="hover:underline block">{{ translate.instant('home') }}</a>
+          </li>
+          <li>
+            <a href="/about-us" class="hover:underline block">{{ translate.instant('about') }}</a>
+          </li>
+          <li>
+            <a href="/shop" class="hover:underline block">{{ translate.instant('shop') }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media Links -->
+      <div>
+        <h2 class="text-sm font-semibold uppercase mb-4">{{ translate.instant('follow us') }}</h2>
+        <ul class="text-gray-400 dark:text-gray-300 font-medium space-y-2">
+          <li>
+            <a href="https://www.facebook.com/turboplus.ae" class="hover:underline block">Facebook</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/turboplus.ae" class="hover:underline block">Instagram</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <hr class="my-6 border-gray-700"/>
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <span class="text-sm text-center">© 2023 <a [routerLink]="['/']" class="hover:underline">TurboPlus™</a>. All Rights Reserved.</span>
-      <div class="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-        <a href="https://www.facebook.com/turboplus.ae" class="text-gray-500 hover:text-white hover:scale-110 transition-transform">
-          <img src="../../../assets/svg/face.svg" alt="Facebook page" class="w-5 h-5" height="50" width="50">
-          <span class="sr-only">Facebook page</span>
+
+    <!-- Divider Line -->
+    <hr class="my-6 border-gray-700" />
+
+    <!-- Copyright and Social Icons -->
+    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
+      <div class="text-sm text-center md:text-left mb-4 md:mb-0 md:w-1/2">
+        <span>© 2023 <a href="/" class="hover:underline">TurboPlus™</a>. {{ translate.instant('All Rights Reserved.') }}</span>
+      </div>
+      <div class="flex space-x-4 pb-4 justify-center mt-4 md:mt-0">
+        <a href="https://www.facebook.com/turboplus.ae" class="text-gray-500 hover:text-white transform hover:scale-110">
+          <img src="../../../assets/svg/face.svg" alt="Facebook page" class="w-5 h-5" height="50" width="50" aria-label="Facebook page" />
         </a>
-        <a href="https://www.instagram.com/turboplus.ae" class="text-gray-500 hover:text-white hover:scale-110 transition-transform">
-          <img src="../../../assets/svg/insta.svg" alt="Instagram Page" class="w-5 h-5" height="50" width="50">
-          <span class="sr-only">Instagram Page</span>
+        <a href="https://www.instagram.com/turboplus.ae" class="text-gray-500 hover:text-white transform hover:scale-110">
+          <img src="../../../assets/svg/insta.svg" alt="Instagram Page" class="w-5 h-5" height="50" width="50" aria-label="Instagram Page" />
         </a>
       </div>
     </div>

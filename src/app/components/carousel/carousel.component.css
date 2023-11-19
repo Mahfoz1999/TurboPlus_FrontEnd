@@ -1,3 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.button-nav {
+  @apply bg-white text-gray-800 font-bold py-2 px-4 border border-solid border-gray-300 cursor-pointer transition duration-300 ease-in-out;
+}
+
+.button-nav:hover {
+  @apply bg-gray-100;
+}
+

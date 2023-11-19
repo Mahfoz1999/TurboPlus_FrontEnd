@@ -1,74 +1,95 @@
-<header>
-  <app-navbar></app-navbar>
-</header>
+<!DOCTYPE html>
+<html>
 
-<main *ngIf="!loading">
-  <section class="bg-white">
-    <div class="pt-6">
-      <!-- Image gallery -->
-      <div class="relative flex items-center justify-center">
-        <img [src]="apiBaseUrl + car!.images![currentImageIndex]" alt="{{ car?.brandName }} {{ car?.name }} {{ car?.year }}" class="w-[900px] h-[500px] object-cover">
-        <div class="absolute inset-0 flex items-center justify-between">
-          <button (click)="previousImage()" [disabled]="currentImageIndex === 0" class="btn-navigation left-0 bg-gray-800 text-white px-4 py-2 rounded-l-md" aria-label="Previous Image">
-            Prev
-          </button>
-          <button (click)="nextImage()" [disabled]="currentImageIndex === car!.images!.length - 1" class="btn-navigation right-0 bg-gray-800 text-white px-4 py-2 rounded-r-md" aria-label="Next Image">
-            Next
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ car?.brandName }} {{ car?.name }} {{ car?.year }} - Car Rental in Dubai</title>
+  <meta name="description" content="{{ car?.description }}">
+  <meta name="keywords" content="{{ car?.brandName }}, {{ car?.name }}, {{ car?.year }}, car rental, Dubai">
+  <meta name="author" content="Mahfouz Khalil">
+  <!-- Open Graph meta tags for social media -->
+  <meta property="og:title" content="{{ car?.brandName }} {{ car?.name }} {{ car?.year }} - Car Rental in Dubai">
+  <meta property="og:description" content="{{ car?.description }}">
+  <meta property="og:image" content="{{ apiBaseUrl + car!.images![currentImageIndex] }}">
+</head>
+
+<body>
+
+<app-navbar></app-navbar>
+
+<main *ngIf="!loading" class="bg-gray-100">
+  <section class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+    <!-- Image gallery -->
+    <div class="relative flex items-center justify-center overflow-hidden rounded-lg">
+      <img [src]="apiBaseUrl + car!.images![currentImageIndex]"
+           alt="{{ car?.brandName }} {{ car?.name }} {{ car?.year }} for rent in Dubai"
+           class="w-full md:w-1/2 h-96 object-cover rounded-lg shadow-lg">
+      <div class="absolute inset-0 flex items-center justify-between">
+        <button (click)="previousImage()" [disabled]="currentImageIndex === 0"
+                class="btn-navigation left-0 bg-gray-800 text-white px-4 py-2 rounded-l-md" aria-label="Previous Image">
+          Prev
+        </button>
+        <button (click)="nextImage()" [disabled]="currentImageIndex === car!.images!.length - 1"
+                class="btn-navigation right-0 bg-gray-800 text-white px-4 py-2 rounded-r-md" aria-label="Next Image">
+          Next
+        </button>
       </div>
-      
+    </div>
 
-      <div class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-1 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-        <div class="mt-4 lg:row-span-3 lg:mt-0">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {{ car?.brandName + " " + car?.name + " " + car?.year }}
-          </h1>
-          <h2 class="text-xl font-serif tracking-tight text-gray-500 sm:text-xl">Dubai-UAE</h2>
+    <div class="mx-auto max-w-2xl mt-8 md:mt-12 px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+      <div class="lg:row-span-3">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 leading-tight">
+          {{ car?.brandName + " " + car?.name + " " + car?.year }}
+        </h1>
+        <h2 class="text-lg text-gray-500">Dubai</h2>
 
-          <h2 class="sr-only text-black">Car information</h2>
-          <p class="text-3xl tracking-tight text-gray-900">
-            {{ car?.price + " AED per day" }}
-          </p>
-          <div class="flex items-center mt-2 space-x-4">
-            <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="text-green-500 font-bold">Free delivery within 20 minutes</span>
-          </div>
-          
-          <div class="mt-4 flex items-center space-x-4">
-            <div>
-              <label for="start-date" class="font-bold text-gray-700 block">Start Date</label>
-              <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)" aria-labelledby="start-date"></app-date-picker>
-            </div>
-            <div>
-              <label for="end-date" class="font-bold text-gray-700 block">End Date</label>
-              <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)" aria-labelledby="end-date"></app-date-picker>
-            </div>
-          </div>
-
-          <button
-            (click)="navigateToWhatsApp()"
-            type="submit"
-            class="mt-6 w-1/2 px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            Book Now
-          </button>
+        <p class="text-3xl mt-4 tracking-tight text-gray-900">
+          {{ car?.price + " AED per day" }}
+        </p>
+        <div class="flex items-center mt-2 space-x-4">
+          <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-green-500 font-semibold">Free delivery within 20 minutes</span>
         </div>
 
-        <div class="py-10 lg:col-span-1 lg:pb-16 lg:pr-8 lg:pt-6">
-          <h3 class="text-2xl font-semibold text-gray-900">Description</h3>
-          <article class="space-y-4 text-base text-gray-700">{{ car?.description }}</article>
+        <div class="mt-4 flex items-center space-x-4">
+          <div>
+            <label for="start-date" class="font-semibold text-gray-700 block">Start Date</label>
+            <app-date-picker id="start-date" (datepickerValueChanged)="onStartDatepickerValueChanged($event)"
+                             aria-labelledby="start-date"></app-date-picker>
+          </div>
+          <div>
+            <label for="end-date" class="font-semibold text-gray-700 block">End Date</label>
+            <app-date-picker id="end-date" (datepickerValueChanged)="onEndDatepickerValueChanged($event)"
+                             aria-labelledby="end-date"></app-date-picker>
+          </div>
         </div>
+
+        <button (click)="navigateToWhatsApp()" type="submit"
+                class="mt-6 w-full px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-blue-500 rounded-md hover:from-indigo-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Book Now
+        </button>
+      </div>
+
+      <div class="py-10">
+        <h3 class="text-2xl font-semibold text-gray-900">Description</h3>
+        <article class="mt-4 space-y-4 text-base text-gray-700">{{ car?.description }}</article>
       </div>
     </div>
   </section>
 
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  <app-footer></app-footer>
+
 </main>
 
 <div *ngIf="loading" class="fixed inset-0 flex items-center justify-center bg-white opacity-80">
   <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
 </div>
+</body>
+
+</html>

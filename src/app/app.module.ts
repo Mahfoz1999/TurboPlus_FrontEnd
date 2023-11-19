@@ -11,7 +11,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {CardComponent} from './components/card/card.component';
 import {ShopComponent} from './pages/shop/shop.component';
 import {CarProfileComponent} from './pages/car-profile/car-profile.component';
-import {FAQComponent} from './pages/faq/faq.component';
+import {FAQComponent} from './components/faq/faq.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

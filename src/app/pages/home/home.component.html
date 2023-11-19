@@ -1,77 +1,124 @@
-<main *ngIf="!loading" >
-  
-  <section  class="bg-cover bg-center h-screen relative object-fill" [ngStyle]="{'background-image': 'url(' + apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl + ')'}" >
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo Plus - Discover Unmatched Luxury with Car Rentals in Dubai</title>
+  <meta name="description" content="Book your luxury car rental in Dubai with Turbo Plus today and elevate your journey in style. Explore our exclusive fleet and reserve your dream car now!">
+  <meta name="keywords" content="luxury car rental, high-end car rental, premium car hire, Dubai, exotic cars, Turbo Plus, best car hire services">
+  <meta name="author" content="Mahfouz Khalil">
+  <!-- Open Graph meta tags for social media -->
+  <meta property="og:title" content="Turbo Plus - Discover Unmatched Luxury with Car Rentals in Dubai">
+  <meta property="og:description" content="Book your luxury car rental in Dubai with Turbo Plus today and elevate your journey in style. Explore our exclusive fleet and reserve your dream car now!">
+  <meta property="og:image" content="url_to_your_featured_image.jpg">
+  <meta property="og:url" content="your_website_url">
+  <!-- Social Media Markup -->
+  <meta property="og:site_name" content="Turbo Plus">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- Additional Optimizations -->
+  <h1>Discover Unmatched Luxury with Turbo Plus Car Rentals in Dubai</h1>
+  <!-- Add relevant header tags (H2, H3, etc.) -->
+  <img src="assets/svg/logo.svg" alt="Turbo Plus - Luxury Car Rental in Dubai Logo" title="Turbo Plus - Luxury Car Rental in Dubai">
+</head>
+
+
+<body>
+<main *ngIf="!loading">
+  <section class="bg-cover bg-center h-screen relative object-fill"
+           [ngStyle]="{'background-image': 'url(' + apiBaseUrl + cars[currentBackgroundIndex].coverPhotoUrl + ')'}">
     <app-navbar></app-navbar>
     <div class="md:pt-24 pt-12 pb-12 text-white m-4 md:m-16 font-roboto space-x-5 text-center">
       <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('new in stock')}}</p>
-      <h1 class="text-4xl md:text-7xl font-stencil text-white">{{translate.instant('Discover a New Level of Comfort')}}</h1>
+      <h1
+        class="text-4xl md:text-7xl font-stencil text-white">{{translate.instant('Discover a New Level of Comfort')}}</h1>
       <br>
-      <a [routerLink]="['/shop']" class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
-      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: cars[currentBackgroundIndex].id }" class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + cars[currentBackgroundIndex].brandName + " " + cars[currentBackgroundIndex].name + " " + cars[currentBackgroundIndex].year.toString()}}</a>
+      <a [routerLink]="['/shop']"
+         class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: cars[currentBackgroundIndex].id }"
+         class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + cars[currentBackgroundIndex].brandName + " " + cars[currentBackgroundIndex].name + " " + cars[currentBackgroundIndex].year.toString()}}</a>
     </div>
   </section>
-
-  
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4" >
-    <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'" svg="assets/svg/cars-6.svg" ></app-tip>
-    <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'" svg="assets/svg/money.svg" ></app-tip>
-    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'" svg="assets/svg/support.svg" ></app-tip>
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:pt-24 pt-12 md:pl-10 md:pr-10 pl-4 pr-4">
+    <app-tip [boldText]="translate.instant('Variety of Cars')" [Text]="translate.instant('tip1')" [num]="'01'"
+             svg="assets/svg/cars-6.svg"></app-tip>
+    <app-tip [boldText]="translate.instant('Competitive Pricing')" [Text]="translate.instant('tip2')" [num]="'02'"
+             svg="assets/svg/money.svg"></app-tip>
+    <app-tip [boldText]="translate.instant('24/7')" [Text]="translate.instant('tip3')" [num]="'03'"
+             svg="assets/svg/support.svg"></app-tip>
   </section>
 
   <section class="md:pl-10 pt-12 md:pt-24 pb-12">
     <div class="md:w-full pb-5 text-start">
-      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'text-right': translate.currentLang === 'ar'}">{{  translate.instant('All Brands') }}</h1>
+      <h1 class="text-4xl md:text-6xl font-bold text-black"
+          [ngClass]="{'text-right': translate.currentLang === 'ar'}">{{  translate.instant('All Brands') }}</h1>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-4  md:pt-24 pt-12 md:pl-10 md:pr-10 pl-10 pr-4" >
-       <ng-container *ngFor="let brand of brands">
-        <app-brand-card *ngIf="brand.carsCount!=0" [routerLink]="['/brand']" [queryParams]="{ brandId: brand.id, brandName: brand.name }" [image]="apiBaseUrl+brand.brandLogoFileUrl" [name]="brand.name"></app-brand-card>        
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-4  md:pt-24 pt-12 md:pl-10 md:pr-10 pl-10 pr-4">
+      <ng-container *ngFor="let brand of brands">
+        <app-brand-card *ngIf="brand.carsCount!=0" [routerLink]="['/brand']"
+                        [queryParams]="{ brandId: brand.id, brandName: brand.name }"
+                        [image]="apiBaseUrl+brand.brandLogoFileUrl" [name]="brand.name"></app-brand-card>
       </ng-container>
     </div>
   </section>
-  
-  <section class="md:pl-10 md:pt-24 pt-12" >
+
+  <section class="md:pl-10 md:pt-24 pt-12">
     <div class="md:w-full pb-10">
-      <p class="text-2xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Featured Vehicles')}}</h1>
+      <p class="text-2xl font-normal text-black"
+         [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-black"
+          [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Featured Vehicles')}}</h1>
     </div>
     <app-car-slider></app-car-slider>
   </section>
 
-  
+
   <section class="pt-40">
     <app-news-letter></app-news-letter>
   </section>
 
 
-  <section class="md:pl-10 pt-12 md:pt-24" >
+  <section class="md:pl-10 pt-12 md:pt-24">
     <div class="md:w-full pb-5 text-start">
-      <p class="text-2xl md:text-3xl font-normal text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-black" [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Latest Vehicles')}}</h1>
+      <p class="text-2xl md:text-3xl font-normal text-black"
+         [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('WE RECOMMEND')}}</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-black"
+          [ngClass]="{'flex justify-end pr-12': translate.currentLang === 'ar'}">{{translate.instant('Latest Vehicles')}}</h1>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 m-4">
       <div *ngFor="let car of cars">
-        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl + car.imageUrl" [name]="car.brandName + ' ' + car.name + ' ' + car.year" [price]="car.price.toString() + ' AED'"></app-card>
+        <app-card [routerLink]="['/car-profile']" [queryParams]="{ carId: car.id }" [image]="apiBaseUrl + car.imageUrl"
+                  [name]="car.brandName + ' ' + car.name + ' ' + car.year"
+                  [price]="car.price.toString() + ' AED'"></app-card>
       </div>
     </div>
     <div class="flex flex-col md:flex-row justify-center items-center pt-4">
-      <a [routerLink]="['/shop']" class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/shop']"
+         class="inline-block mb-3 md:mb-0 px-5 py-3 border border-black hover:bg-black hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
     </div>
   </section>
 
-  
+
   <app-dubai-section></app-dubai-section>
 
-  
-  <section  class="bg-cover mt-36 bg-center h-screen relative object-fill flex flex-col justify-center items-center" [ngStyle]="{'background-image': 'url(' + apiBaseUrl + car?.coverPhotoUrl + ')'}">
+
+  <section class="bg-cover mt-36 bg-center h-screen relative object-fill flex flex-col justify-center items-center"
+           [ngStyle]="{'background-image': 'url(' + apiBaseUrl + car?.coverPhotoUrl + ')'}">
     <div class="md:pt-24 pt-12 pb-12 text-white m-4 md:m-16 font-roboto space-x-5 text-center">
       <p class="text-2xl md:text-3xl font-extrabold text-gray-200">{{translate.instant('Car Of The Day')}}</p>
-      <h1 class="text-4xl md:text-7xl font-stencil text-white">{{car?.brandName + " " + car?.name + " " + car?.year}}</h1>
+      <h1
+        class="text-4xl md:text-7xl font-stencil text-white">{{car?.brandName + " " + car?.name + " " + car?.year}}</h1>
       <br>
-      <a [routerLink]="['/shop']" class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
-      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: car?.id }" class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + car?.brandName + " " + car?.name + " " + car?.year}}</a>
+      <a [routerLink]="['/shop']"
+         class="inline-block px-5 py-3 bg-white text-black hover:bg-gray-800 hover:text-white rounded-lg">{{translate.instant('Discover More')}}</a>
+      <a [routerLink]="['/car-profile']" [queryParams]="{ carId: car?.id }"
+         class="inline-block mt-5 px-5 py-3 border border-white hover:bg-white hover:text-gray-800 rounded-lg">{{translate.instant('Meet ') + car?.brandName + " " + car?.name + " " + car?.year}}</a>
     </div>
   </section>
   <app-review></app-review>
+  <br>
+  <app-faq></app-faq>
   <br>
   <br>
   <br>
@@ -80,3 +127,5 @@
 <div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white opacity-80">
   <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
 </div>
+</body>
+</html>
